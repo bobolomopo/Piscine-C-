@@ -6,7 +6,7 @@
 /*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 13:29:44 by jandre            #+#    #+#             */
-/*   Updated: 2021/07/29 17:00:25 by jandre           ###   ########.fr       */
+/*   Updated: 2021/07/29 17:26:21 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <sstream>
 # include <iomanip>
 # include <string_view>
-//# include <string>
+# include <string>
 
 class   contact
 {
