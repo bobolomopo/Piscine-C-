@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+         #
+#    By: jandre <jandre@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/28 13:16:26 by jandre            #+#    #+#              #
-#    Updated: 2021/07/28 13:47:33 by jandre           ###   ########.fr        #
+#    Updated: 2021/07/29 13:58:04 by jandre           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = clang++
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = lamephonebook.cpp main.cpp
+SRC = lamephonebook.cpp main.cpp contact.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

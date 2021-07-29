@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
+/*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 13:31:15 by jandre            #+#    #+#             */
-/*   Updated: 2021/07/28 13:59:33 by jandre           ###   ########.fr       */
+/*   Updated: 2021/07/29 17:16:34 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,19 @@ int main()
     {
         std::cout << "What do you want to do? ";
         getline(std::cin, command);
-        if (command != "EXIT" && command != "ADD" && command != "SEARCH")
-            std::cout << "Please do something that i know, \
-i am pretty dumb! Oh and without spaces please!" << std::endl;
-        if (command == "EXIT")
+        if (command == "ADD")
+            lpb.add_contact();
+        else if (command == "TEST")
+            lpb.get_contact(0);
+        else if (command == "SEARCH")
+            lpb.search_contact();
+        else if (command == "EXIT")
             break ;
+        else
+            std::cout << "Please do something that i know, \
+i am pretty dumb! Oh and without spaces please!" << std::endl << "REMINDER : ADD, SEARCH, EXIT" << std::endl;
+	std::cout << std::endl;
     }
+    std::cout << std::endl;
     return (0);
 }
