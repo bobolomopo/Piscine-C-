@@ -6,7 +6,7 @@
 /*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 20:12:04 by jandre            #+#    #+#             */
-/*   Updated: 2021/08/12 21:28:24 by jandre           ###   ########.fr       */
+/*   Updated: 2021/08/12 21:34:43 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class HumanB
     void    setWeapon(Weapon weapon);
 
     private:
-    Weapon      weapon(std::string type);
+    Weapon      weapon;
     std::string name;
 };
 
