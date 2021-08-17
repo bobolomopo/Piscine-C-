@@ -6,15 +6,14 @@
 /*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 20:13:30 by jandre            #+#    #+#             */
-/*   Updated: 2021/08/12 21:51:13 by jandre           ###   ########.fr       */
+/*   Updated: 2021/08/17 16:05:43 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
 
-Weapon::Weapon(std::string type)
+Weapon::Weapon(std::string type) : type(type)
 {
-    this->type = type;
     return ;
 }
 
