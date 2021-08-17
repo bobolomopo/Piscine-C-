@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 13:38:49 by jandre            #+#    #+#             */
-/*   Updated: 2021/07/29 17:08:37 by jandre           ###   ########.fr       */
+/*   Updated: 2021/08/17 18:41:47 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	contact::add_contact(void)
 	std::cout << "You have a new contact! Congrats :)" << std::endl;
 }
 
-std::string_view	contact::print_max(std::string_view sv, std::size_t width)
+std::experimental::string_view	contact::print_max(std::experimental::string_view sv, std::size_t width)
 {
 	return (sv.substr(0, width));
 }

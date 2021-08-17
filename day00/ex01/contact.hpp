@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 13:29:44 by jandre            #+#    #+#             */
-/*   Updated: 2021/07/29 17:26:21 by jandre           ###   ########.fr       */
+/*   Updated: 2021/08/17 18:41:14 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_H
 # define CONTACT_H
+# include <experimental/string_view>
 # include <iostream>
 # include <sstream>
-# include <iomanip>
-# include <string_view>
 # include <string>
+# include <iomanip>
 
 class   contact
 {
@@ -27,7 +27,7 @@ class   contact
 	void				get_info(void);
 	void				add_contact(void);
 	void				display_contact(int i);
-	std::string_view	print_max(std::string_view sv, std::size_t width);
+	std::experimental::string_view	print_max(std::experimental::string_view sv, std::size_t width);
 
 	private:
 
