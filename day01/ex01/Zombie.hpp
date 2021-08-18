@@ -6,7 +6,7 @@
 /*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 15:33:23 by jandre            #+#    #+#             */
-/*   Updated: 2021/08/10 18:12:43 by jandre           ###   ########.fr       */
+/*   Updated: 2021/08/12 20:14:58 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 
 class Zombie
 {
-
     public:
     Zombie(void);
     ~Zombie(void);
@@ -28,7 +27,6 @@ class Zombie
     void    name_me(std::string new_name);
     
     private:
-
     std::string name;
 
 };
