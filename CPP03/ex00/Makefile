@@ -6,11 +6,11 @@
 #    By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/19 12:58:50 by jandre            #+#    #+#              #
-#    Updated: 2021/10/08 14:26:38 by jandre           ###   ########.fr        #
+#    Updated: 2021/10/19 10:04:28 by jandre           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fixed
+NAME = ClapTrap
 
 CC = clang++
 
