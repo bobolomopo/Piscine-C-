@@ -6,7 +6,7 @@
 /*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 12:48:42 by jandre            #+#    #+#             */
-/*   Updated: 2021/11/13 19:18:15 by jandre           ###   ########.fr       */
+/*   Updated: 2021/11/18 15:40:07 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,4 @@ void    Fixed::setRawBits(int const raw)
 {
     this->value = raw;
     return ;
-}
-
-std::ostream &operator<<(std::ostream &out, const Fixed &in)
-{
-    out << in.getRawBits();
-    return (out);
 }

@@ -6,13 +6,13 @@
 /*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 12:43:46 by jandre            #+#    #+#             */
-/*   Updated: 2021/08/19 12:59:40 by jandre           ###   ########.fr       */
+/*   Updated: 2021/11/18 15:04:19 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FIXED
 # define FIXED
-# include <string>
+# include <cmath>
 # include <iostream>
 
 class Fixed {
@@ -23,12 +23,16 @@ class Fixed {
     public:
         Fixed(void);
 		Fixed(const Fixed &src);
+		Fixed(const int i);
+		Fixed(const float f);
 		~Fixed(void);
 
 		Fixed &operator=(const Fixed &rhs);
 
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
+		float	toFloat(void) const;
+		int		toInt(void) const;
 
 };
 

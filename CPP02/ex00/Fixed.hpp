@@ -6,7 +6,7 @@
 /*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 12:43:46 by jandre            #+#    #+#             */
-/*   Updated: 2021/08/19 12:59:40 by jandre           ###   ########.fr       */
+/*   Updated: 2021/11/18 15:40:13 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,5 @@ class Fixed {
 		void	setRawBits(int const raw);
 
 };
-
-std::ostream &operator<<(std::ostream &out, const Fixed &in);
 
 #endif
