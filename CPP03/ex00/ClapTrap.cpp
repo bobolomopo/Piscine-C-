@@ -6,26 +6,76 @@
 /*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 14:26:44 by jandre            #+#    #+#             */
-/*   Updated: 2021/10/19 10:21:34 by jandre           ###   ########.fr       */
+/*   Updated: 2021/11/18 16:45:50 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string name) : name(name)
+//Constructors & Destructors
+ClapTrap::ClapTrap(void) : name("G PAS DNOM"), hitpoints(10), energy(10), attackdmg(0)
 {
-    this->hitpoints = 10;
-    this->energy = 10;
-    this->attackdmg = 0;
     std::cout << "Mister " << name << " created" << std::endl;
     return ;
 }
 
+ClapTrap::ClapTrap(std::string name) : name(name), hitpoints(10), energy(10), attackdmg(0)
+{
+    std::cout << "Mister " << name << " created" << std::endl;
+    return ;
+}
+
+ClapTrap::ClapTrap(const ClapTrap &src)
+{
+    *this = src;
+    return ;
+}
 
 ClapTrap::~ClapTrap(void)
 {
     std::cout << "Destructor called for " << this->name << std::endl;
     return ;
+}
+
+//accessors
+
+std::string ClapTrap::get_name(void)
+{
+    return (this->name);
+}
+
+int ClapTrap::get_attackdmg(void)
+{
+    return(this->attackdmg);
+}
+
+int ClapTrap::get_energy(void)
+{
+    return(this->energy);
+}
+
+int ClapTrap::get_hitpoints(void)
+{
+    return (this->hitpoints);
+}
+
+//operators
+ClapTrap &ClapTrap::operator=(const ClapTrap &rhs)
+{
+    if (this != &rhs)
+    {
+        this->name = rhs.get_name();
+        this->attackdmg = rhs.get_attackdmg();
+        this->energy = rhs.get_energy();
+        this->hitpoints = rhs.get_hitpoints();
+    }
+    return (*this);
+}
+
+std::ostream &operator<<(std::ostream &out, const ClapTrap &in)
+{
+    out << in.get_name();
+    return (out);
 }
 
 void ClapTrap::change_attack_dmg(int new_value)
@@ -41,7 +91,13 @@ int ClapTrap::get_attackdmg(void)
 
 void ClapTrap::attack(std::string const &target)
 {
-    std::cout << this->name << " attacks " << target << " causing " << this->attackdmg << " damages" << std::endl;
+    if (this->energy > 0)
+    {
+        this->energy--;
+        std::cout << this->name << " attacks " << target << " causing " << this->attackdmg << " damages" << std::endl;
+    }
+    else
+        std::cout << this->name << " doesn't have enough energy to attack" << std::endl;
     return ;
 }
 
