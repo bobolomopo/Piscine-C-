@@ -6,7 +6,7 @@
 /*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 14:26:48 by jandre            #+#    #+#             */
-/*   Updated: 2021/11/18 16:46:58 by jandre           ###   ########.fr       */
+/*   Updated: 2021/11/19 15:25:11 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,16 @@ class ClapTrap {
         ClapTrap   &operator=(const ClapTrap &rhs);
 
         //accessors
-        int get_attackdmg(void);
-        std::string get_name(void);
-        int get_hitpoints(void);
-        int get_energy(void);
+        int get_attackdmg(void) const;
+        std::string get_name(void) const;
+        int get_hitpoints(void) const;
+        int get_energy(void) const;
+        void set_attackdmg(int const new_value);
+        void set_energy(int const new_value);
+        void set_hitpoints( int const new_value);
+        void set_name(std::string const new_name);
         
         //actions
-        void change_attack_dmg(int new_value);
         void attack(std::string const &target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);

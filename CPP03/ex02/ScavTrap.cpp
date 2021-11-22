@@ -6,7 +6,7 @@
 /*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 15:29:38 by jandre            #+#    #+#             */
-/*   Updated: 2021/11/19 16:27:01 by jandre           ###   ########.fr       */
+/*   Updated: 2021/11/22 16:51:44 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,18 @@ ScavTrap::~ScavTrap(void)
     std::cout << "[SCAVTRAP]Destructor called for " << this->name << std::endl;
     return ;
 }
+//accessors
+
+bool ScavTrap::get_guardGate(void) const
+{
+    return ((this->guardkeeper_mode));
+}
+
+void ScavTrap::set_guardGate(const bool state)
+{
+    this->guardkeeper_mode = state;
+    return ;
+}
 
 //operator
 
@@ -57,14 +69,27 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &rhs)
         this->set_attackdmg(rhs.get_attackdmg());
         this->set_energy(rhs.get_energy());
         this->set_hitpoints(rhs.get_hitpoints());
+        this->set_guardGate(rhs.get_guardGate());
     }
     return (*this);
 }
-
 std::ostream &operator<<(std::ostream &out, const ScavTrap &in)
 {
     out << in.get_name();
     return (out);
+}
+
+//accessors
+
+bool ScavTrap::get_guardGate(void)
+{
+    return ((this->guardkeeper_mode));
+}
+
+void ScavTrap::set_guardGate(bool state)
+{
+    this->guardkeeper_mode = state;
+    return ;
 }
 
 //actions

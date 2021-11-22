@@ -6,7 +6,7 @@
 /*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 15:23:20 by jandre            #+#    #+#             */
-/*   Updated: 2021/11/19 16:25:04 by jandre           ###   ########.fr       */
+/*   Updated: 2021/11/22 16:51:31 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 class ScavTrap : public ClapTrap {
     private:
-        int guardkeeper_mode;
+        bool guardkeeper_mode;
     public:
         //Constructors & Destructors
         ScavTrap(void);
@@ -26,6 +26,10 @@ class ScavTrap : public ClapTrap {
         
         //opperators
         ScavTrap   &operator=(const ScavTrap &rhs);
+
+        //accessors
+        void set_guardGate(const bool state);
+        bool get_guardGate(void) const;
 
         //action
         void guardGate(void);

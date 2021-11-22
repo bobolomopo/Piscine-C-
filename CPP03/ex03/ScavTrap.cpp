@@ -6,7 +6,7 @@
 /*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 15:29:38 by jandre            #+#    #+#             */
-/*   Updated: 2021/11/19 16:27:01 by jandre           ###   ########.fr       */
+/*   Updated: 2021/11/22 16:50:49 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ ScavTrap::ScavTrap(void)
     this->hitpoints = 100;
     this->energy = 50;
     this->attackdmg = 20;
-    this->guardkeeper_mode = 0;
+    this->guardkeeper_mode = false;
     std::cout << "[SCAVTRAP]Mister " << name << " created" << std::endl;
     return ;
 }
@@ -30,6 +30,7 @@ ScavTrap::ScavTrap(std::string name)
     this->hitpoints = 100;
     this->energy = 50;
     this->attackdmg = 20;
+    this->guardkeeper_mode = false;
     std::cout << "[SCAVTRAP]Mister " << name << " created" << std::endl;
     return ;
 }
@@ -47,6 +48,19 @@ ScavTrap::~ScavTrap(void)
     return ;
 }
 
+//accessors
+
+bool ScavTrap::get_guardGate(void) const
+{
+    return ((this->guardkeeper_mode));
+}
+
+void ScavTrap::set_guardGate(const bool state)
+{
+    this->guardkeeper_mode = state;
+    return ;
+}
+
 //operator
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &rhs)
@@ -57,6 +71,7 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &rhs)
         this->set_attackdmg(rhs.get_attackdmg());
         this->set_energy(rhs.get_energy());
         this->set_hitpoints(rhs.get_hitpoints());
+        this->set_guardGate(rhs.get_guardGate());
     }
     return (*this);
 }
@@ -67,13 +82,14 @@ std::ostream &operator<<(std::ostream &out, const ScavTrap &in)
     return (out);
 }
 
+
 //actions
 
 void ScavTrap::guardGate(void)
 {
     if (this->hitpoints > 0)
     {
-        this->guardkeeper_mode = 1;
+        this->guardkeeper_mode = true;
         std::cout << this->name << " has now entered the Gate Keeper mode be carefull" << std::endl;
     }
     else

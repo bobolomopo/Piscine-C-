@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/19 16:21:07 by jandre            #+#    #+#             */
-/*   Updated: 2021/11/22 16:42:38 by jandre           ###   ########.fr       */
+/*   Created: 2021/11/22 16:39:01 by jandre            #+#    #+#             */
+/*   Updated: 2021/11/22 16:56:08 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP
-# define FRAGTRAP
-# include "ClapTrap.hpp"
+#ifndef DIAMONDTRAP
+# define DIAMONDTRAP
+# include "FragTrap.hpp"
+# include "ScavTrap.hpp"
 
-class FragTrap : public ClapTrap {
+class DiamondTrap : public ScavTrap, public FragTrap {
+    private:
+        std::string name;
+    
     public:
         //Constructors & Destructors
-        FragTrap(void);
-        FragTrap(const FragTrap &src);
-        FragTrap(std::string name);
-        ~FragTrap(void);
+        DiamondTrap(void);
+        DiamondTrap(const DiamondTrap &src);
+        DiamondTrap(std::string name);
+        ~DiamondTrap(void);
         
         //opperators
-        FragTrap   &operator=(const FragTrap &rhs);
+        DiamondTrap   &operator=(const DiamondTrap &rhs);
 
-        //action
-        void highFivesGuys(void);
 };
 
-std::ostream &operator<<(std::ostream &out, const FragTrap &in);
+std::ostream &operator<<(std::ostream &out, const DiamondTrap &in);
 
 #endif

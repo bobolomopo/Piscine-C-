@@ -6,7 +6,7 @@
 /*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 14:26:44 by jandre            #+#    #+#             */
-/*   Updated: 2021/11/18 16:45:50 by jandre           ###   ########.fr       */
+/*   Updated: 2021/11/19 15:45:02 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ ClapTrap::ClapTrap(std::string name) : name(name), hitpoints(10), energy(10), at
 ClapTrap::ClapTrap(const ClapTrap &src)
 {
     *this = src;
+    std::cout << "Mister " << name << " created" << std::endl;
     return ;
 }
 
@@ -39,22 +40,46 @@ ClapTrap::~ClapTrap(void)
 
 //accessors
 
-std::string ClapTrap::get_name(void)
+void    ClapTrap::set_attackdmg(int const new_value)
+{
+    this->attackdmg = new_value;
+    return ;
+}
+
+void    ClapTrap::set_energy(int const new_value)
+{
+    this->energy = new_value;
+    return ;
+}
+
+void    ClapTrap::set_hitpoints(int const new_value)
+{
+    this->hitpoints = new_value;
+    return ;
+}
+
+void    ClapTrap::set_name(std::string const new_name)
+{
+    this->name = new_name;
+    return ;
+}
+
+std::string ClapTrap::get_name(void) const
 {
     return (this->name);
 }
 
-int ClapTrap::get_attackdmg(void)
+int ClapTrap::get_attackdmg(void) const
 {
     return(this->attackdmg);
 }
 
-int ClapTrap::get_energy(void)
+int ClapTrap::get_energy(void) const
 {
     return(this->energy);
 }
 
-int ClapTrap::get_hitpoints(void)
+int ClapTrap::get_hitpoints(void) const
 {
     return (this->hitpoints);
 }
@@ -64,10 +89,10 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &rhs)
 {
     if (this != &rhs)
     {
-        this->name = rhs.get_name();
-        this->attackdmg = rhs.get_attackdmg();
-        this->energy = rhs.get_energy();
-        this->hitpoints = rhs.get_hitpoints();
+        this->set_name(rhs.get_name());
+        this->set_attackdmg(rhs.get_attackdmg());
+        this->set_energy(rhs.get_energy());
+        this->set_hitpoints(rhs.get_hitpoints());
     }
     return (*this);
 }
@@ -76,17 +101,6 @@ std::ostream &operator<<(std::ostream &out, const ClapTrap &in)
 {
     out << in.get_name();
     return (out);
-}
-
-void ClapTrap::change_attack_dmg(int new_value)
-{
-    this->attackdmg = new_value;
-    std::cout << "Attack damage of " << this->name << " succesfully changed to " << new_value << std::endl;
-}
-
-int ClapTrap::get_attackdmg(void)
-{
-    return (this->attackdmg);
 }
 
 void ClapTrap::attack(std::string const &target)
@@ -116,7 +130,7 @@ void ClapTrap::takeDamage(unsigned int amount)
         std::cout << std::endl << this->name << " received too much damages and died!" << std::endl;
     }
     else
-        std::cout << std::endl << this->name << " has " << this->hitpoints << " left" << std::endl;
+        std::cout << std::endl << this->name << " has " << this->hitpoints << " hitpoints left" << std::endl;
     return ;
 }
 
@@ -128,7 +142,7 @@ void ClapTrap::beRepaired(unsigned int amount)
         std::cout << this->name << " was ressucitated and is now left with " << amount << " hitpoints!! MIRACLE" << std::endl;
         return ;
     }
-    std::cout << this->name << " is healed of" << amount << " hitpoint";
+    std::cout << this->name << " is healed of " << amount << " hitpoint";
     this->hitpoints += amount;
     std::cout << std::endl << this->name << " now has " << this->hitpoints << " left" << std::endl;
     return ;

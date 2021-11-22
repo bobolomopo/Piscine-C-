@@ -6,13 +6,13 @@
 /*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 16:21:07 by jandre            #+#    #+#             */
-/*   Updated: 2021/11/19 16:26:24 by jandre           ###   ########.fr       */
+/*   Updated: 2021/11/22 16:42:03 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRAGTRAP
 # define FRAGTRAP
-# include "ScavTrap.hpp"
+# include "ClapTrap.hpp"
 
 class FragTrap : public ClapTrap {
     public:
