@@ -6,11 +6,13 @@
 /*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 14:26:51 by jandre            #+#    #+#             */
-/*   Updated: 2021/11/19 16:37:51 by jandre           ###   ########.fr       */
+/*   Updated: 2021/11/23 11:28:59 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
+#include "ScavTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main()
 {
@@ -26,6 +28,10 @@ int main()
     FragTrap guy10("Caribou");
     FragTrap guy11;
     FragTrap guy12(guy9);
+    DiamondTrap guy13("Pierrot");
+    DiamondTrap guy14("Loumpia");
+    DiamondTrap guy15;
+    DiamondTrap guy16(guy13);
 
     std::cout << std::endl << "Test with the basic values for CLAPTRAP" << std::endl;
     guy1.attack(guy2.get_name());
@@ -36,6 +42,9 @@ int main()
     std::cout << std::endl << "Test with the basic values for FRAGTRAP" << std::endl;
     guy9.attack(guy10.get_name());
     guy10.takeDamage(guy9.get_attackdmg());
+    std::cout << std::endl << "Test with the basic values for DIAMONDTRAP" << std::endl;
+    guy13.attack(guy13.get_name());
+    guy14.takeDamage(guy14.get_attackdmg());
     std::cout << std::endl << "Changing attack value and trying to kill one guy and attacking him once dead for CLAPTRAP" << std::endl;
     guy1.set_attackdmg(5);
     guy1.attack(guy2.get_name());

@@ -6,7 +6,7 @@
 #    By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/19 12:58:50 by jandre            #+#    #+#              #
-#    Updated: 2021/11/19 16:41:46 by jandre           ###   ########.fr        #
+#    Updated: 2021/11/23 11:15:54 by jandre           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = clang++
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

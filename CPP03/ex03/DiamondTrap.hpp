@@ -6,7 +6,7 @@
 /*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 16:39:01 by jandre            #+#    #+#             */
-/*   Updated: 2021/11/22 16:56:08 by jandre           ###   ########.fr       */
+/*   Updated: 2021/11/23 11:12:57 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include "FragTrap.hpp"
 # include "ScavTrap.hpp"
 
-class DiamondTrap : public ScavTrap, public FragTrap {
+class DiamondTrap : public virtual ScavTrap, public virtual FragTrap {
     private:
         std::string name;
     
@@ -28,6 +28,10 @@ class DiamondTrap : public ScavTrap, public FragTrap {
         
         //opperators
         DiamondTrap   &operator=(const DiamondTrap &rhs);
+
+        //accessors
+        void set_name(std::string const name);
+        std::string get_name(void) const;
 
 };
 

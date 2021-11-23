@@ -6,11 +6,12 @@
 /*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 14:26:51 by jandre            #+#    #+#             */
-/*   Updated: 2021/11/19 16:37:51 by jandre           ###   ########.fr       */
+/*   Updated: 2021/11/23 10:50:50 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main()
 {
