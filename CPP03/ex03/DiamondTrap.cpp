@@ -6,15 +6,16 @@
 /*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 16:39:09 by jandre            #+#    #+#             */
-/*   Updated: 2021/11/23 12:54:14 by jandre           ###   ########.fr       */
+/*   Updated: 2021/11/23 13:05:41 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
 //Constructors & Destructors
-DiamondTrap::DiamondTrap(void) : ClapTrap("G PAS DNOM_clap_name")
+DiamondTrap::DiamondTrap(void) : ClapTrap("G PAS DNOM_clap_name"), name("G PAS DNOM")
 {
+    ClapTrap::name = "G PAS DNOM_clap_name";
     this->hitpoints = FragTrap::hitpoints;
     this->energy = ScavTrap::energy;
     this->attackdmg = FragTrap::attackdmg;
@@ -22,8 +23,9 @@ DiamondTrap::DiamondTrap(void) : ClapTrap("G PAS DNOM_clap_name")
     return ;
 }
 
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name), name(name)
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name")
 {
+    ClapTrap::name = name + "_clap_name";
     this->hitpoints = FragTrap::hitpoints;
     this->energy = ScavTrap::energy;
     this->attackdmg = FragTrap::attackdmg;
