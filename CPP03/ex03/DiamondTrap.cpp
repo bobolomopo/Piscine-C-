@@ -6,32 +6,27 @@
 /*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 16:39:09 by jandre            #+#    #+#             */
-/*   Updated: 2021/11/23 11:35:00 by jandre           ###   ########.fr       */
+/*   Updated: 2021/11/23 12:54:14 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
 //Constructors & Destructors
-DiamondTrap::DiamondTrap(void)
+DiamondTrap::DiamondTrap(void) : ClapTrap("G PAS DNOM_clap_name")
 {
-    this->name = "G PAS DNOM";
-    ScavTrap::attack(&target);
-    this->FragTrap::hitpoints = FragTrap::hitpoints;
-    this->ScavTrap::energy = ScavTrap::energy;
-    this->FragTrap::attackdmg = FragTrap::attackdmg;
-    this->ScavTrap::guardkeeper_mode = ScavTrap::guardkeeper_mode;
+    this->hitpoints = FragTrap::hitpoints;
+    this->energy = ScavTrap::energy;
+    this->attackdmg = FragTrap::attackdmg;
     std::cout << "[DIAMONDTRAP]Mister " << name << " created" << std::endl;
     return ;
 }
 
-DiamondTrap::DiamondTrap(std::string name)
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name), name(name)
 {
-    this->name = name;
-    this->FragTrap::hitpoints = FragTrap::hitpoints;
-    this->ScavTrap::energy = ScavTrap::energy;
-    this->FragTrap::attackdmg = FragTrap::attackdmg;
-    this->ScavTrap::guardkeeper_mode = ScavTrap::guardkeeper_mode;
+    this->hitpoints = FragTrap::hitpoints;
+    this->energy = ScavTrap::energy;
+    this->attackdmg = FragTrap::attackdmg;
     std::cout << "[DIAMONDTRAP]Mister " << name << " created" << std::endl;
     return ;
 }
@@ -60,6 +55,14 @@ void DiamondTrap::set_name(std::string const name)
 std::string DiamondTrap::get_name(void) const
 {
     return (this->name);
+}
+
+//actions
+
+void    DiamondTrap::whoAmI(void)
+{
+    std::cout << "DIAMONDTRAP name : " << this->name << std::endl;
+    std::cout << "CLAPTRAP name for DIAMONDTRAP class : " << ClapTrap::get_name() << std::endl; 
 }
 
 //Operator

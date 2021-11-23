@@ -6,7 +6,7 @@
 /*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 14:26:51 by jandre            #+#    #+#             */
-/*   Updated: 2021/11/23 11:28:59 by jandre           ###   ########.fr       */
+/*   Updated: 2021/11/23 12:46:03 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ int main()
     guy9.attack(guy10.get_name());
     guy10.takeDamage(guy9.get_attackdmg());
     std::cout << std::endl << "Test with the basic values for DIAMONDTRAP" << std::endl;
-    guy13.attack(guy13.get_name());
-    guy14.takeDamage(guy14.get_attackdmg());
+    guy13.attack(guy14.get_name());
+    guy14.takeDamage(guy13.get_attackdmg());
     std::cout << std::endl << "Changing attack value and trying to kill one guy and attacking him once dead for CLAPTRAP" << std::endl;
     guy1.set_attackdmg(5);
     guy1.attack(guy2.get_name());
@@ -55,7 +55,7 @@ int main()
     guy2.takeDamage(guy1.get_attackdmg());
     std::cout << std::endl << "Changing attack value and trying to kill one guy and attacking him once dead for SCAVTRAP" << std::endl;
     guy5.set_attackdmg(40);
-    guy6.attack(guy6.get_name());
+    guy5.attack(guy6.get_name());
     guy6.takeDamage(guy5.get_attackdmg());
     guy5.attack(guy6.get_name());
     guy6.takeDamage(guy5.get_attackdmg());
@@ -63,12 +63,20 @@ int main()
     guy6.takeDamage(guy5.get_attackdmg());
     std::cout << std::endl << "Changing attack value and trying to kill one guy and attacking him once dead for FRAGTRAP" << std::endl;
     guy9.set_attackdmg(40);
-    guy10.attack(guy10.get_name());
-    guy10.takeDamage(guy9.get_attackdmg());
     guy9.attack(guy10.get_name());
     guy10.takeDamage(guy9.get_attackdmg());
     guy9.attack(guy10.get_name());
     guy10.takeDamage(guy9.get_attackdmg());
+    guy9.attack(guy10.get_name());
+    guy10.takeDamage(guy9.get_attackdmg());
+    std::cout << std::endl << "Changing attack value and trying to kill one guy and attacking him once dead for DIAMONDTRAP" << std::endl;
+    guy13.set_attackdmg(40);
+    guy13.attack(guy14.get_name());
+    guy14.takeDamage(guy13.get_attackdmg());
+    guy13.attack(guy14.get_name());
+    guy14.takeDamage(guy13.get_attackdmg());
+    guy13.attack(guy14.get_name());
+    guy14.takeDamage(guy13.get_attackdmg());
     std::cout << std::endl << "Healing the dead guy and attacking him again for CLAPTRAP" << std::endl;
     guy2.beRepaired(10);
     guy1.attack(guy2.get_name());
@@ -87,6 +95,12 @@ int main()
     guy10.takeDamage(guy9.get_attackdmg());
     guy9.attack(guy10.get_name());
     guy10.takeDamage(guy9.get_attackdmg());
+    std::cout << std::endl << "Healing the dead guy and attacking him again for DIAMONDTRAP" << std::endl;
+    guy14.beRepaired(80);
+    guy13.attack(guy14.get_name());
+    guy14.takeDamage(guy13.get_attackdmg());
+    guy13.attack(guy14.get_name());
+    guy14.takeDamage(guy13.get_attackdmg());
     std::cout << std::endl << "Testing gatekeeper mode" << std::endl;
     guy5.guardGate();
     guy6.guardGate();
@@ -97,6 +111,10 @@ int main()
     guy10.highFivesGuys();
     guy11.highFivesGuys();
     guy12.highFivesGuys();
+    std::cout << std::endl << "Testing gatekeeper mode, highfives and who am i for DIAMONDTRAP" << std::endl;
+    guy13.guardGate();
+    guy13.highFivesGuys();
+    guy13.whoAmI();
     std::cout << std::endl;
     return (0);
 }

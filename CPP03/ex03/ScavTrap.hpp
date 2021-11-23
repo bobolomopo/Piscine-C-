@@ -6,7 +6,7 @@
 /*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 15:23:20 by jandre            #+#    #+#             */
-/*   Updated: 2021/11/22 16:52:15 by jandre           ###   ########.fr       */
+/*   Updated: 2021/11/23 12:06:45 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SCAVTRAP
 # include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap {
+class ScavTrap : public virtual ClapTrap {
     protected:
         bool guardkeeper_mode;
     public:

@@ -6,7 +6,7 @@
 /*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 16:20:57 by jandre            #+#    #+#             */
-/*   Updated: 2021/11/19 16:42:20 by jandre           ###   ########.fr       */
+/*   Updated: 2021/11/23 12:33:25 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ FragTrap::FragTrap(void)
     return ;
 }
 
-FragTrap::FragTrap(std::string name)
+FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
     this->name = name;
     this->hitpoints = 100;

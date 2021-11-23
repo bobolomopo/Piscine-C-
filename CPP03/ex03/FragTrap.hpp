@@ -6,7 +6,7 @@
 /*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 16:21:07 by jandre            #+#    #+#             */
-/*   Updated: 2021/11/22 16:42:03 by jandre           ###   ########.fr       */
+/*   Updated: 2021/11/23 12:06:39 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FRAGTRAP
 # include "ClapTrap.hpp"
 
-class FragTrap : public ClapTrap {
+class FragTrap : public virtual ClapTrap {
     public:
         //Constructors & Destructors
         FragTrap(void);
