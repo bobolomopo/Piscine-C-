@@ -6,7 +6,7 @@
 /*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 13:49:04 by jandre            #+#    #+#             */
-/*   Updated: 2021/11/26 11:21:40 by jandre           ###   ########.fr       */
+/*   Updated: 2021/12/06 16:34:11 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 Dog::Dog(void)
 {
     this->type = "Dog";
+    this->brain = new Brain;
     std::cout << "Dog created" << std::endl;
     return ;
 }
@@ -28,6 +29,7 @@ Dog::Dog(const Dog &src)
 
 Dog::~Dog(void)
 {
+    delete(this->brain);
     std::cout << "Dog destructed" << std::endl;
     return ;
 }
@@ -37,8 +39,18 @@ Dog::~Dog(void)
 Dog &Dog::operator=(const Dog &rhs)
 {
     if (this != &rhs)
+    {
+        *(this->brain) = *(rhs.brain);
         this->set_type(rhs.get_type());
+    }
     return (*this);
+}
+
+//Accessor
+
+std::string Dog::get_idea(int i) const
+{
+    return (this->brain->get_idea(i));
 }
 
 //Actions

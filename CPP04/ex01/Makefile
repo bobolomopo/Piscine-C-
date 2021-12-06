@@ -6,7 +6,7 @@
 #    By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/23 13:43:46 by jandre            #+#    #+#              #
-#    Updated: 2021/11/26 10:49:55 by jandre           ###   ########.fr        #
+#    Updated: 2021/12/06 15:22:45 by jandre           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = clang++
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = Animal.cpp Dog.cpp WrongAnimal.cpp Cat.cpp WrongCat.cpp main.cpp
+SRC = Animal.cpp Dog.cpp WrongAnimal.cpp Cat.cpp WrongCat.cpp main.cpp Brain.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

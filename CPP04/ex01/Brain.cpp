@@ -6,7 +6,7 @@
 /*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 16:06:29 by jandre            #+#    #+#             */
-/*   Updated: 2021/11/26 16:45:46 by jandre           ###   ########.fr       */
+/*   Updated: 2021/12/06 16:27:00 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,31 @@ Brain::~Brain(void)
 
 Brain &Brain::operator=(const Brain &rhs)
 {
+    int i;
+
+    i = 0;
     if (this != &rhs)
-        this->set_type(rhs.get_type());
+    {
+        while (i < 100)
+        {
+            this->set_idea(rhs.get_idea(i), i);
+            i++;
+        }
+    }
     return (*this);
+}
+
+//accesssor
+
+std::string Brain::get_idea(int i) const
+{
+    return (this->idea[i]);
+}
+
+void Brain::set_idea(std::string const new_idea, int i)
+{
+    this->idea[i] = new_idea;
+    return ;
 }
 
 //Actions
