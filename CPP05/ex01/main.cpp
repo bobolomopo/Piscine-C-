@@ -6,7 +6,7 @@
 /*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 09:53:24 by jandre            #+#    #+#             */
-/*   Updated: 2021/12/20 15:59:48 by jandre           ###   ########.fr       */
+/*   Updated: 2021/12/20 16:03:09 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,12 @@ int main()
     C.beSigned(Kakari);
     C.beSigned(marcel);
     C.beSigned(Kokori);
+    B.beSigned(joel);
+    Kokori.signForm(C_cpy);
+    Kakari.signForm(C_cpy);
+    marcel.signForm(C_cpy);
+    Kokori.signForm(C_cpy);
+    joel.signForm(B_cpy);
 
     return (0);
 }
