@@ -6,7 +6,7 @@
 /*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 09:38:23 by jandre            #+#    #+#             */
-/*   Updated: 2021/12/20 10:17:22 by jandre           ###   ########.fr       */
+/*   Updated: 2021/12/20 10:30:34 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define BUREAUCRAT_HPP
 # include <iostream>
 # include <stdexcept>
+# include "Form.hpp"
+
+class Form;
 
 class Bureaucrat {
     private:
@@ -49,7 +52,7 @@ class Bureaucrat {
         //Actions
         void        incGrade(void);
         void        decGrade(void);
-
+        void        signForm(Form form);
 };
 
 std::ostream &			operator<<( std::ostream & o, Bureaucrat const & i );
