@@ -6,12 +6,15 @@
 /*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 09:53:24 by jandre            #+#    #+#             */
-/*   Updated: 2021/12/20 16:03:09 by jandre           ###   ########.fr       */
+/*   Updated: 2021/12/21 19:34:23 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 static void sendText(std::string const txt)
 {
@@ -31,56 +34,64 @@ int main()
 
     //Test constructors Form
     sendText("Testing all the constructors for Forms");
-    Form A;
-    Form B("Form B", 150, 150);
-    Form B_cpy(B);
-    Form C("Form C", 1, 1);
-    Form C_cpy(C);
+    PresidentialForm pres("coco");
+    PresidentialForm pres2("coco", "form P");
+    PresidentialForm pres3(pres2);
+    SchrubberyForm schru("mara");
+    SchrubberyForm schru2("popo", "form S");
+    SchrubberyForm schru3(schru2);
+    RobotomyForm rob("bebe");
+    RobotomyForm rob2("bebe", "form R");
+    RobotomyForm rob3(rob2);
+
+
     sendText("\n");
 
     //test all overloads
     sendText("Testing all the overloads on all the bureacrat and form created");
+    std::cout << pres << std::endl;
+    std::cout << pres2 << std::endl;
+    std::cout << pres3 << std::endl;
+    std::cout << schru << std::endl;
+    std::cout << schru2 << std::endl;
+    std::cout << schru3 << std::endl;
+    std::cout << rob << std::endl;
+    std::cout << rob2 << std::endl;
+    std::cout << rob3 << std::endl << std::endl;
     std::cout << joel << std::endl;
     std::cout << marcel << std::endl;
     std::cout << basic << std::endl;
-    std::cout << joel_copy << std::endl;
-    std::cout << A << std::endl;
-    std::cout << B << std::endl;
-    std::cout << B_cpy << std::endl;
-    std::cout << C << std::endl;
     sendText("\n");
 
     //test exeptions
-    sendText("Testing increase and decrease and seeing if exeptions works");
-    joel.decGrade();
-    std::cout << joel << std::endl;
-    joel.incGrade();
-    std::cout << joel << std::endl;
-    marcel.incGrade();
-    std::cout << marcel << std::endl;
-    marcel.decGrade();
-    std::cout << marcel << std::endl;
+    sendText("Testing execute");
+    marcel.executeForm(schru);
+    marcel.executeForm(pres);
+    marcel.executeForm(rob);
+    joel.signForm(schru);
+    marcel.signForm(schru);
+    marcel.signForm(pres);
+    marcel.signForm(schru);
+    marcel.signForm(rob);
+    joel.executeForm(schru);
+    marcel.executeForm(schru);
+    marcel.executeForm(rob);
+    marcel.executeForm(rob);
+    marcel.executeForm(rob);
+    marcel.executeForm(rob);
+    marcel.executeForm(rob);
+    marcel.executeForm(rob);
+    marcel.executeForm(pres);    
     sendText("\n");
 
     //test constructor with wrong grades
     sendText("Testing exeption on the creation of a bureaucrat");
-    Bureaucrat Kokori("Kokori", 1444);
-    Bureaucrat Kakari("Kakari", -1444);
-    std::cout << Kokori << std::endl;
-    std::cout << Kakari << std::endl;
-
+    
+    sendText("\n");
+    
     //test sign form with good and wrong grades
     sendText("test sign form with good and wrong grades and sign form already signed");
-    C.beSigned(Kokori);
-    C.beSigned(Kakari);
-    C.beSigned(marcel);
-    C.beSigned(Kokori);
-    B.beSigned(joel);
-    Kokori.signForm(C_cpy);
-    Kakari.signForm(C_cpy);
-    marcel.signForm(C_cpy);
-    Kokori.signForm(C_cpy);
-    joel.signForm(B_cpy);
+    
 
     return (0);
 }

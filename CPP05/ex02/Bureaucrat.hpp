@@ -6,7 +6,7 @@
 /*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 09:38:23 by jandre            #+#    #+#             */
-/*   Updated: 2021/12/20 10:30:34 by jandre           ###   ########.fr       */
+/*   Updated: 2021/12/21 18:18:07 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 # define BUREAUCRAT_HPP
 # include <iostream>
 # include <stdexcept>
-# include "Form.hpp"
+# include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat {
     private:
@@ -41,6 +41,17 @@ class Bureaucrat {
 			public:
 				const char * what() const throw();
 		};
+        class FormNotSigned : public std::exception 
+		{
+            public:
+			    const char *what() const throw();
+		};
+		
+		class AlreasdySign : public std::exception 
+		{
+            public:
+			    const char *what() const throw();
+		};
 
         //Accessors
         std::string getName() const;
@@ -52,7 +63,8 @@ class Bureaucrat {
         //Actions
         void        incGrade(void);
         void        decGrade(void);
-        void        signForm(Form form);
+        void        signForm(AForm &form);
+        void        executeForm(AForm &form);
 };
 
 std::ostream &			operator<<( std::ostream & o, Bureaucrat const & i );

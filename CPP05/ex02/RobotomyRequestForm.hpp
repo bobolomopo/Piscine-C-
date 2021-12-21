@@ -6,27 +6,37 @@
 /*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 16:05:19 by jandre            #+#    #+#             */
-/*   Updated: 2021/12/20 16:15:02 by jandre           ###   ########.fr       */
+/*   Updated: 2021/12/21 18:43:29 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ROBOTOMY_HPP
 # define ROBOTOMY_HPP
-# include "Form.hpp"
+# include "AForm.hpp"
 
 class Bureaucrat;
-class Form;
+class AForm;
 
-class RobotomyForm : Form {
+class RobotomyForm : public AForm {
+    private:
+        std::string const _target;
     public:
     //Constructor & Destructors
-        RobotomyForm();
+        RobotomyForm(std::string target);
 		RobotomyForm(RobotomyForm const &src);
-		RobotomyForm(std::string name);
+		RobotomyForm(std::string target, std::string name);
 		~RobotomyForm();
-    
-    //Actions
 
+    //Accessors
+        std::string getTarget() const;
+    
+    //operator
+        RobotomyForm &operator=(RobotomyForm const & src);
+
+    //Actions
+        void execute(Bureaucrat const &executor) const;
 };
+
+std::ostream &operator<<(std::ostream &o, RobotomyForm const &i);
 
 #endif

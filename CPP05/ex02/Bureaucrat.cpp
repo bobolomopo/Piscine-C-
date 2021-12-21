@@ -6,7 +6,7 @@
 /*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 09:43:56 by jandre            #+#    #+#             */
-/*   Updated: 2021/12/20 15:56:22 by jandre           ###   ########.fr       */
+/*   Updated: 2021/12/21 19:24:03 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,19 +76,29 @@ Bureaucrat &Bureaucrat::operator=(Bureaucrat const & src)
 
 std::ostream &operator<<( std::ostream &o, Bureaucrat const &i)
 {
-	o << i.getName() << " bureaucrat grade " << i.getGrade();
+	o << i.getName() << " [ " << i.getGrade() << " ]";
 	return (o);
 }
 
 //exception
-const char*	Bureaucrat::GradeTooHighException::what() const throw()
+const char *Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return ("'s grade is too high.");
 }
 
-const char*	Bureaucrat::GradeTooLowException::what() const throw()
+const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return ("'s grade is too low.");
+}
+
+const char *Bureaucrat::FormNotSigned::what() const throw() 
+{
+	return "'s not signed.";
+}
+
+const char *Bureaucrat::AlreasdySign::what() const throw() 
+{
+	return "'s already signed.";
 }
 
 //Accessors
@@ -147,16 +157,48 @@ void	Bureaucrat::decGrade()
     return ;
 }
 
-void	Bureaucrat::signForm(Form form)
+void	Bureaucrat::signForm(AForm &form)
 {
-	if (form.getIfSigned() == true)
+	try
+    {
+        if (form.getIfSigned() == true)
+            throw(Bureaucrat::AlreasdySign());
+        else if (this->getGrade() > form.getGradeSign())
+            throw(Bureaucrat::GradeTooLowException());
+    }
+    catch (Bureaucrat::AlreasdySign &e)
 	{
-		std::cout << "The form : " << form.getName() << " is already signed." << std::endl;
-		return ;
+		std::cout << form.getName() << e.what() << std::endl;
+        return ;
 	}
-	if (this->_grade <= form.getGradeSign())
-		form.beSigned(*this);
-	else
-		std::cout << "the Form " << form.getName() << " can\'t be signed by " << this->getName() << ", grade is too low" << std::endl;
-	return ;	
+	catch (Bureaucrat::GradeTooLowException &e)
+	{
+		std::cout << this->getName() << e.what() << std::endl;
+        return ;
+	}
+	form.beSigned(*this);
+	return ;
+}
+
+void	Bureaucrat::executeForm(AForm &form)
+{
+	try
+    {
+        if (form.getIfSigned() == false)
+            throw(Bureaucrat::FormNotSigned());
+        else if (this->getGrade() > form.getGradeExe())
+            throw(Bureaucrat::GradeTooLowException());
+    }
+    catch (Bureaucrat::FormNotSigned &e)
+	{
+		std::cout << form.getName() << e.what() << std::endl;
+        return ;
+	}
+	catch (Bureaucrat::GradeTooLowException &e)
+	{
+		std::cout << this->getName() << e.what() << std::endl;
+        return ;
+	}
+	form.execute(*this);
+	return ;
 }

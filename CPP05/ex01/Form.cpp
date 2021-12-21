@@ -6,7 +6,7 @@
 /*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 10:34:57 by jandre            #+#    #+#             */
-/*   Updated: 2021/12/20 15:55:11 by jandre           ###   ########.fr       */
+/*   Updated: 2021/12/21 16:27:52 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Form::Form() : _name("Form"), _required_sign(150), _required_exe(150), _is_signe
     return ;
 }
 
-Form::Form( Form const & src ) : _name(src.getName()), _required_sign(src.getGradeSign()), _required_exe(src.getGradeExe()), _is_signed(false)
+Form::Form( Form const & src ) : _name(src.getName()), _required_sign(src.getGradeSign()), _required_exe(src.getGradeExe()), _is_signed(getIfSigned())
 {
 	try
 	{

@@ -6,27 +6,37 @@
 /*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 16:05:59 by jandre            #+#    #+#             */
-/*   Updated: 2021/12/20 16:14:31 by jandre           ###   ########.fr       */
+/*   Updated: 2021/12/21 18:41:39 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PRESIDENTIAL_HPP
 # define PRESIDENTIAL_HPP
-# include "Form.hpp"
+# include "AForm.hpp"
 
 class Bureaucrat;
-class Form;
+class AForm;
 
-class PresidentialForm : Form {
+class PresidentialForm : public AForm {
+    private:
+        const std::string _target;
     public:
     //Constructor & Destructors
-        PresidentialForm();
+        PresidentialForm(std::string target);
 		PresidentialForm(PresidentialForm const &src);
-		PresidentialForm(std::string name);
+		PresidentialForm(std::string target, std::string name);
 		~PresidentialForm();
     
+    //Accessors
+        std::string getTarget() const;
+    
+    //operator
+        PresidentialForm &operator=(PresidentialForm const & src);
+    
     //Actions
-        
+        void execute(Bureaucrat const &executor) const;
 };
+
+std::ostream &operator<<(std::ostream &o, PresidentialForm const &i);
 
 #endif
