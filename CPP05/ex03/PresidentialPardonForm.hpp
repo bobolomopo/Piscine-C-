@@ -6,7 +6,7 @@
 /*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 16:05:59 by jandre            #+#    #+#             */
-/*   Updated: 2021/12/21 18:41:39 by jandre           ###   ########.fr       */
+/*   Updated: 2021/12/23 16:33:49 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class PresidentialForm : public AForm {
         PresidentialForm(std::string target);
 		PresidentialForm(PresidentialForm const &src);
 		PresidentialForm(std::string target, std::string name);
-		~PresidentialForm();
+		virtual ~PresidentialForm();
     
     //Accessors
         std::string getTarget() const;

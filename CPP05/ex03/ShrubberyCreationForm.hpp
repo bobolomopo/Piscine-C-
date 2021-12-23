@@ -6,7 +6,7 @@
 /*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 16:05:02 by jandre            #+#    #+#             */
-/*   Updated: 2021/12/23 16:08:39 by jandre           ###   ########.fr       */
+/*   Updated: 2021/12/23 16:33:37 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class ShrubberyForm : public AForm {
         ShrubberyForm(std::string target);
 		ShrubberyForm(ShrubberyForm const &src);
 		ShrubberyForm(std::string target, std::string name);
-		~ShrubberyForm();
+		virtual ~ShrubberyForm();
 
     //operator
         ShrubberyForm &operator=(ShrubberyForm const & src);

@@ -78,7 +78,7 @@ std::ostream &operator<<( std::ostream &o, AForm const &i)
         sign = "signed";
     else
         sign = "not signed";
-	o << i.getName() << " is " << sign << " and form grade to sign is " << i.getGradeSign() << " and to execute is " << i.getGradeExe();
+	o << i.getName() << " is " << sign << " and grade to sign is " << i.getGradeSign() << " and to execute is " << i.getGradeExe();
 	return (o);
 }
 

@@ -6,7 +6,7 @@
 /*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 16:05:19 by jandre            #+#    #+#             */
-/*   Updated: 2021/12/21 18:43:29 by jandre           ###   ########.fr       */
+/*   Updated: 2021/12/23 16:33:31 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class RobotomyForm : public AForm {
         RobotomyForm(std::string target);
 		RobotomyForm(RobotomyForm const &src);
 		RobotomyForm(std::string target, std::string name);
-		~RobotomyForm();
+		virtual ~RobotomyForm();
 
     //Accessors
         std::string getTarget() const;

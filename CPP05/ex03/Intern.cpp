@@ -6,7 +6,7 @@
 /*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 15:57:03 by jandre            #+#    #+#             */
-/*   Updated: 2021/12/23 16:10:41 by jandre           ###   ########.fr       */
+/*   Updated: 2021/12/23 16:22:01 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ Intern::~Intern()
 //operator overload
 Intern &Intern::operator=(Intern const & src)
 {
+    (void)src;
 	return (*this);
 }
 
@@ -48,7 +49,7 @@ AForm *Intern::makeForm(std::string type, std::string target)
         std::cout << "Intern creates a new presidential request with the target : " << target << std::endl;
         return (new PresidentialForm(target));
     }
-    else if (type == "schrubbery")
+    else if (type == "shrubbery")
     {
         std::cout << "Intern creates a new shrubbery request with the target : " << target << std::endl;
         return (new ShrubberyForm(target));

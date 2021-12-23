@@ -6,7 +6,7 @@
 /*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 09:53:24 by jandre            #+#    #+#             */
-/*   Updated: 2021/12/21 19:34:23 by jandre           ###   ########.fr       */
+/*   Updated: 2021/12/23 16:34:21 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "PresidentialPardonForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "Intern.hpp"
 
 static void sendText(std::string const txt)
 {
@@ -37,9 +38,9 @@ int main()
     PresidentialForm pres("coco");
     PresidentialForm pres2("coco", "form P");
     PresidentialForm pres3(pres2);
-    SchrubberyForm schru("mara");
-    SchrubberyForm schru2("popo", "form S");
-    SchrubberyForm schru3(schru2);
+    ShrubberyForm schru("mara");
+    ShrubberyForm schru2("popo", "form S");
+    ShrubberyForm schru3(schru2);
     RobotomyForm rob("bebe");
     RobotomyForm rob2("bebe", "form R");
     RobotomyForm rob3(rob2);
@@ -84,14 +85,19 @@ int main()
     marcel.executeForm(pres);    
     sendText("\n");
 
-    //test constructor with wrong grades
-    sendText("Testing exeption on the creation of a bureaucrat");
-    
-    sendText("\n");
-    
-    //test sign form with good and wrong grades
-    sendText("test sign form with good and wrong grades and sign form already signed");
-    
+    //test intern
+    Intern baboul; 
+    AForm *A;
 
+    baboul.makeForm("ola", "beo");
+    A = baboul.makeForm("robotomy", "oki");
+    std::cout << *A << std::endl;
+    delete A;
+    A = baboul.makeForm("presidential", "oki");
+    std::cout << *A << std::endl;
+    delete A;
+    A = baboul.makeForm("shrubbery", "oki");
+    std::cout << *A << std::endl;
+    delete A;
     return (0);
 }

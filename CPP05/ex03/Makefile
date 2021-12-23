@@ -6,7 +6,7 @@
 #    By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/23 13:43:46 by jandre            #+#    #+#              #
-#    Updated: 2021/12/23 15:21:26 by jandre           ###   ########.fr        #
+#    Updated: 2021/12/23 16:15:54 by jandre           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ CC = clang++
 CFLAGS = -Wall -Wextra -Werror
 
 SRC = main.cpp Bureaucrat.cpp AForm.cpp RobotomyRequestForm.cpp \
-		ShrubberyCreationForm.cpp PresidentialPardonForm.cpp
+		ShrubberyCreationForm.cpp PresidentialPardonForm.cpp \
+		Intern.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
