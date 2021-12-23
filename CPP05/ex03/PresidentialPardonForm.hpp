@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/20 16:05:02 by jandre            #+#    #+#             */
-/*   Updated: 2021/12/23 16:09:12 by jandre           ###   ########.fr       */
+/*   Created: 2021/12/20 16:05:59 by jandre            #+#    #+#             */
+/*   Updated: 2021/12/21 18:41:39 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERY_HPP
-# define SHRUBBERY_HPP
+#ifndef PRESIDENTIAL_HPP
+# define PRESIDENTIAL_HPP
 # include "AForm.hpp"
 
 class Bureaucrat;
 class AForm;
 
-class ShrubberyForm : public AForm {
+class PresidentialForm : public AForm {
     private:
-        std::string const _target;
+        const std::string _target;
     public:
     //Constructor & Destructors
-        ShrubberyForm(std::string target);
-		ShrubberyForm(ShrubberyForm const &src);
-		ShrubberyForm(std::string target, std::string name);
-		~ShrubberyForm();
-
-    //operator
-        ShrubberyForm &operator=(ShrubberyForm const & src);
+        PresidentialForm(std::string target);
+		PresidentialForm(PresidentialForm const &src);
+		PresidentialForm(std::string target, std::string name);
+		~PresidentialForm();
     
     //Accessors
         std::string getTarget() const;
-        
+    
+    //operator
+        PresidentialForm &operator=(PresidentialForm const & src);
+    
     //Actions
         void execute(Bureaucrat const &executor) const;
 };
 
-std::ostream &operator<<(std::ostream &o, ShrubberyForm const &i);
+std::ostream &operator<<(std::ostream &o, PresidentialForm const &i);
 
 #endif
