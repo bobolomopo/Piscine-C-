@@ -6,7 +6,7 @@
 /*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 16:06:54 by jandre            #+#    #+#             */
-/*   Updated: 2021/12/21 19:25:01 by jandre           ###   ########.fr       */
+/*   Updated: 2021/12/21 19:41:31 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void RobotomyForm::execute(Bureaucrat const &executor) const
         return ;
 	}
     std::cout << "BRRRrrRRRrRRr ** Bruit de Perceuse ** BRErrrrrrrbBBRrr" << std::endl;
-    if (rand()% 2 == 0)
+    if (rand()% 2 == 1)
         std::cout << this->getTarget() << " has successfully been Robotomized" << std::endl;
     else
         std::cout << this->getTarget() << " has unfortunately not been Robotomized" << std::endl;
