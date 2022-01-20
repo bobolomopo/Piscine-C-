@@ -6,7 +6,7 @@
 /*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 13:31:22 by jandre            #+#    #+#             */
-/*   Updated: 2021/07/29 17:14:31 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/20 11:44:30 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,10 @@ void	lame_phone_book::search_contact(void)
 
 	i = -1;
 	if (this->number_contact == 0)
+	{
 		std::cout << "You still don't have anybody in your phonebook... Sorry... :(" << std::endl;
+		return ;
+	}
 	else
 		std::cout << "     INDEX| FIRSTNAME|  LASTNAME|  NICKNAME|" << std::endl;
 	while (++i < this->number_contact)

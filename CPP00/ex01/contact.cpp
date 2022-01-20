@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
+/*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 13:38:49 by jandre            #+#    #+#             */
-/*   Updated: 2021/08/17 18:41:47 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/20 11:56:46 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,26 +47,27 @@ void	contact::add_contact(void)
 	std::cout << "You have a new contact! Congrats :)" << std::endl;
 }
 
-std::experimental::string_view	contact::print_max(std::experimental::string_view sv, std::size_t width)
-{
-	return (sv.substr(0, width));
-}
 
 void	contact::display_contact(int i)
 {
+	std::string first_name;
+	std::string last_name;
+	std::string nickname;
+
+	first_name = this->first_name;
+	last_name = this->last_name;
+	nickname = this->nickname;
+
+	if (first_name.length() >= 10)
+		first_name.resize (9);
+	if (last_name.length() >= 10)
+		last_name.resize (9);
+	if (nickname.length() >= 10)
+		nickname.resize (9);
 	std::cout << "         " << i + 1 << "|";
-	if (this->first_name.size() >= 10)
-		std::cout << std::setw(9) << print_max(this->first_name, 9) << ".|";
-	else
-		std::cout << std::setw(10) << print_max(this->first_name, 10) << "|";
-	if (this->last_name.size() >= 10)
-		std::cout << std::setw(9) << print_max(this->last_name, 9) << ".|";
-	else
-		std::cout << std::setw(10) << print_max(this->last_name, 10) << "|";
-	if (this->nickname.size() >= 10)
-		std::cout << std::setw(9) << print_max(this->nickname, 9) << ".|";
-	else
-		std::cout << std::setw(10) << print_max(this->nickname, 10) << "|";
+	std::cout << std::setw(10) << first_name << "|";
+	std::cout << std::setw(10) << last_name << "|";
+	std::cout << std::setw(10) << nickname << "|";
 	std::cout << std::endl;
 	return ;
 }
