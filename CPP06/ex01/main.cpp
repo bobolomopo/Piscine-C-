@@ -6,7 +6,7 @@
 /*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 15:33:30 by jandre            #+#    #+#             */
-/*   Updated: 2022/01/20 15:51:39 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/20 15:53:58 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ int main()
     data->c = 'd';
     data->str = "wqe";
     data->i = 8;
-    std::cout << "before serialisation : " << data->c << ", " << data->str << ", " << data->i << std::endl << std::endl;
+    std::cout << "before serialisation : " << data << ", " << data->c << ", " << data->str << ", " << data->i << std::endl << std::endl;
     i = serialize(data);
     std::cout << "uintptr_t : " << i << std::endl << std::endl;
     data2 = deserialize(i);
-    std::cout << "after deserialisation : " << data2->c << ", " << data2->str << ", " << data2->i << std::endl;
+    std::cout << "after deserialisation : " << data2 << ", " << data2->c << ", " << data2->str << ", " << data2->i << std::endl;
     delete data;
     return (0);
 }
