@@ -6,7 +6,7 @@
 /*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 10:24:29 by jandre            #+#    #+#             */
-/*   Updated: 2022/01/20 13:45:46 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/20 15:17:35 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ class Convert {
     std::string get_input(void) const;
 
     //actions
+    int  is_okay(void) const;
+    int  get_precision(void) const;
     void tochar(void) const;
     void toint(void) const;
     void tofloat(void) const;

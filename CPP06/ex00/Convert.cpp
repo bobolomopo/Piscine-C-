@@ -6,7 +6,7 @@
 /*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 12:49:54 by jandre            #+#    #+#             */
-/*   Updated: 2022/01/20 13:46:45 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/20 15:22:41 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,18 +54,38 @@ const char *Convert::NotDisplayable::what() const throw()
     return ("Not Displayable");
 }
 
+//actions
+int Convert::is_okay(void) const
+{
+    if (this->input.length() != 1 && (*this->input.begin() < '0' || *this->input.begin() > '9'))
+        return (1);
+    return (0); 
+}
+
+int Convert::get_precision(void) const
+{
+    int pos;
+
+    pos = this->input.find(".");
+    if (pos == -1)
+        return (0);
+    
+    return (this->input.length() - pos - 1);
+}
+
 void Convert::tochar(void) const
 {
-    int i;
+    double d;
     char c;
+    char **end = NULL;
 
     std::cout << "char: ";
     try
     {
-        i = atoi(this->input.c_str());
-        if (*input.begin() < '0' || *input.begin() > '9' || i < 0 || i > 255)
+        d = strtod(this->input.c_str(), end);
+        if (*input.begin() < '0' || *input.begin() > '9' || d < 0 || d > 255)
             throw(Convert::Impossible());
-        if (i < 32 || i > 127)
+        if (d < 32 || d > 127)
             throw(Convert::NotDisplayable());
     }
     catch (Convert::Impossible &e)
@@ -83,20 +103,27 @@ void Convert::tochar(void) const
         std::cout << e.what() << std::endl;
         return ;
     }
-    c = char(i);
+    c = static_cast<char>(d);
     std::cout << "'" << c << "'" << std::endl;
     return ;
 }
 
 void Convert::toint(void) const
 {
-    long i;
+    double d;
+    int i;
+    char **end = NULL;
 
+    d = strtod(this->input.c_str(), end);
     std::cout << "int : ";
-    i = atol(this->input.c_str());
+    if (this->input == "0")
+    {
+        std::cout << "0" << std::endl;
+        return ;
+    }
     try
     {
-        if (i > 2147483647 || i < -2147483648)
+        if (d > 2147483647 || d < -2147483648 || d == 0)
             throw(Convert::Impossible());
     }
     catch(const Convert::Impossible &e)
@@ -104,25 +131,32 @@ void Convert::toint(void) const
         std::cout << e.what() << std::endl;
         return ;
     }
+    i = static_cast<int>(d);
     std::cout << i << std::endl;
     return ;
 }
 
 void Convert::tofloat(void) const
 {
-    double i;
+    double d;
+    float f;
     char **end = NULL;
 
     std::cout << "float : ";
+    if (this->input == "-inf" || this->input == "+inf" || this->input == "nan")
+    {
+		std::cout << this->input << "f" << std::endl;
+        return ;
+    }
     if (this->input == "0")
     {
         std::cout << "0.0f" << std::endl;
         return ;
     }
-    i = strtod(this->input.c_str(), end);
+    d = strtod(this->input.c_str(), end);
     try
     {
-        if (i == 0.0F)
+        if (d == 0)
             throw(Convert::Impossible());
     }
     catch(const Convert::Impossible &e)
@@ -130,7 +164,38 @@ void Convert::tofloat(void) const
         std::cout << e.what() << std::endl;
         return ;
     }
-    std::cout << std::setprecision (15) << strtod(this->input.c_str(), end) << "f" << std::endl;
+    f = static_cast<float>(d);
+    std::cout << std::setprecision(this->get_precision()) << std::fixed << f << "f" << std::endl;
     return ;
 }
 
+void Convert::todouble(void) const
+{
+    double d;
+    char **end = NULL;
+
+    std::cout << "float : ";
+    if (this->input == "-inf" || this->input == "+inf" || this->input == "nan")
+    {
+		std::cout << this->input << std::endl;
+        return ;
+    }
+    if (this->input == "0")
+    {
+        std::cout << "0.0" << std::endl;
+        return ;
+    }
+    d = strtod(this->input.c_str(), end);
+    try
+    {
+        if (d == 0)
+            throw(Convert::Impossible());
+    }
+    catch(const Convert::Impossible &e)
+    {
+        std::cout << e.what() << std::endl;
+        return ;
+    }
+    std::cout << std::setprecision(this->get_precision()) << std::fixed << d << std::endl;
+    return ;
+}
