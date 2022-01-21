@@ -6,11 +6,11 @@
 /*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 17:28:30 by jandre            #+#    #+#             */
-/*   Updated: 2022/01/21 17:29:16 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/21 18:02:59 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "template.hpp"
+#include "Template.hpp"
 #include <iostream>
 
 int main()
