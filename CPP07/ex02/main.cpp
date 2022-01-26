@@ -1,11 +1,11 @@
 #include <iostream>
 #include "Array.hpp"
 
-#define MAX_VAL 750
+#define MAX_VAL 10
 int main(int, char**)
 {
     Array<int> numbers(MAX_VAL);
-    int* mirror = new int[MAX_VAL];
+    int* mirror = new int[16];
     srand(time(NULL));
     for (int i = 0; i < MAX_VAL; i++)
     {
@@ -23,11 +23,11 @@ int main(int, char**)
     {
         if (mirror[i] != numbers[i])
         {
-            std::cerr << "didn't save the same value!!" << std::endl;
+            std::cout << "didn't save the same value!!" << std::endl;
             return 1;
         }
     }
-    try
+   /* try
     {
         numbers[-2] = 0;
     }
@@ -42,12 +42,14 @@ int main(int, char**)
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
-    }
+    }*/
 
-    for (int i = 0; i < MAX_VAL; i++)
+    for (int i = 0; i < MAX_VAL - 1; i++)
     {
         numbers[i] = rand();
+        std::cout << numbers[i] << ", ";
     }
+    std::cout << numbers[MAX_VAL] << std::endl;
     delete [] mirror;//
     return 0;
 }

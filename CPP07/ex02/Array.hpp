@@ -6,7 +6,7 @@
 /*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 18:02:31 by jandre            #+#    #+#             */
-/*   Updated: 2022/01/26 15:22:06 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/26 16:52:54 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,23 @@ class Array
         //Constructors & Destructors
         Array<T>() : _n(0), _array()
         {
+            std::cout << "Array created with size 0" << std::endl;
             return ;
         }
         Array<T>(unsigned int n) : _n(n), _array(new T[_n]())
         {
+            std::cout << "Array created with size : " << this->_n << std::endl;
             return ;
         }
         Array<T>(Array<T> const &src)
         {
             *this = src;
+            std::cout << "Copy constructor called" << std::endl;
             return ;
         }
         ~Array<T>()
         {
+            std::cout << "Destructor called" << std::endl;
             if (this->_array)
                 delete [] this->_array;
             return ;
@@ -59,10 +63,8 @@ class Array
         {
             if (this != &rhs)
             {
-                if (this->_array)
-                    delete [] this->_array;
                 this->_n = rhs._n;
-                T *array = new T[_n]();
+                T *array = new T[rhs.size()]();
                 for (unsigned int i = 0; i < rhs._n; i++)
                     array[i] = rhs[i];
                 this->_array = array;
