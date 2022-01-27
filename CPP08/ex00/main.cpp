@@ -6,7 +6,7 @@
 /*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 19:37:11 by jandre            #+#    #+#             */
-/*   Updated: 2022/01/27 20:48:00 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/27 21:07:03 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void try_find(T &data, int toFind)
 
 int main()
 {
+    //vector container
     {
         std::vector<int> vect;
         for (int i = 0; i < SIZE; i++)
@@ -49,7 +50,12 @@ int main()
         try_find(vect, 0);
         try_find(vect, 1);
         try_find(vect, -23);
+
+        //testing empty vector
+        vect.clear();
+        try_find(vect, 3);
     }
+    //list container
     {
         std::list<int> lst;
         for (int i = 0; i < SIZE; i++)
@@ -68,6 +74,11 @@ int main()
         try_find(lst, 0);
         try_find(lst, 1);
         try_find(lst, -23);
+
+        //testing empty list
+        lst.clear();
+        try_find(lst, 3);
     }
+
     return (0);
 }
