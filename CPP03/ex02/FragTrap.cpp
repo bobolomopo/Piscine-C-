@@ -6,7 +6,7 @@
 /*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 16:20:57 by jandre            #+#    #+#             */
-/*   Updated: 2022/01/27 15:32:57 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/27 16:30:28 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 //Constructors & Destructors
 FragTrap::FragTrap(void)
 {
-    this->name = "G PAS DNOM";
+    this->name = "NO_NAME";
     this->hitpoints = 100;
     this->energy = 100;
     this->attackdmg = 30;

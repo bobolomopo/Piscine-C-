@@ -6,14 +6,14 @@
 /*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 14:26:44 by jandre            #+#    #+#             */
-/*   Updated: 2022/01/27 15:20:45 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/27 16:25:47 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 //Constructors & Destructors
-ClapTrap::ClapTrap(void) : name("G PAS DNOM"), hitpoints(10), energy(10), attackdmg(0)
+ClapTrap::ClapTrap(void) : name("NO_NAME"), hitpoints(10), energy(10), attackdmg(0)
 {
     std::cout << "[CLAPTRAP] Mister " << name << " created" << std::endl;
     return ;
