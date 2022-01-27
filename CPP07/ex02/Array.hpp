@@ -6,7 +6,7 @@
 /*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 18:02:31 by jandre            #+#    #+#             */
-/*   Updated: 2022/01/26 18:56:59 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/27 18:37:49 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ class outOfRange : public std::exception
 };
 
 template <typename T>
-class Array 
+class Array
 {
     public:
         //Constructors & Destructors
-        Array<T>() : _n(0), _array()
+        Array<T>() : _n(0), _array(NULL)
         {
-            std::cout << "Array created with size 0" << std::endl;
+            std::cout << "Array created with size : " << this->_n << std::endl;
             return ;
         }
         Array<T>(unsigned int n) : _n(n), _array(new T[n]())
@@ -40,16 +40,17 @@ class Array
             std::cout << "Array created with size : " << this->_n << std::endl;
             return ;
         }
-        Array<T>(Array<T> const &src)
+        Array<T>(Array<T> const &src) : _n(src._n), _array(new T[this->_n]())
         {
-            *this = src;
+            for (unsigned int i = 0; i < this->_n; i++)
+                this->_array[i] = src._array[i];
             std::cout << "Copy constructor called" << std::endl;
             return ;
         }
         ~Array<T>()
         {
             std::cout << "Destructor called" << std::endl;
-            if (this->_array)
+            if (this->_n > 0)
                 delete [] this->_array;
             return ;
         }
@@ -66,10 +67,14 @@ class Array
         {
             if (this != &rhs)
             {
+                if (this->_n > 0)
+                    delete [] this->_array;
                 this->_n = rhs._n;
-                this->_array = new T[rhs.size()]();
+                T* array;
+                array = new T[rhs.size()]();
                 for (unsigned int i = 0; i < rhs._n; i++)
-                    this->_array[i] = rhs[i];
+                    array[i] = rhs[i];
+                this->_array = array;
             }
             return (*this);
         }
