@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
+/*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 14:26:44 by jandre            #+#    #+#             */
-/*   Updated: 2021/11/19 15:44:54 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/27 15:07:45 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,26 @@
 //Constructors & Destructors
 ClapTrap::ClapTrap(void) : name("G PAS DNOM"), hitpoints(10), energy(10), attackdmg(0)
 {
-    std::cout << "[CLAPTRAP]Mister " << name << " created" << std::endl;
+    std::cout << "[CLAPTRAP] Mister " << name << " created" << std::endl;
     return ;
 }
 
 ClapTrap::ClapTrap(std::string name) : name(name), hitpoints(10), energy(10), attackdmg(0)
 {
-    std::cout << "[CLAPTRAP]Mister " << name << " created" << std::endl;
+    std::cout << "[CLAPTRAP] Mister " << name << " created" << std::endl;
     return ;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &src)
 {
     *this = src;
-    std::cout << "[CLAPTRAP]Mister " << name << " created" << std::endl;
+    std::cout << "[CLAPTRAP] Mister " << name << " created" << std::endl;
     return ;
 }
 
 ClapTrap::~ClapTrap(void)
 {
-    std::cout << "[CLAPTRAP]Destructor called for " << this->name << std::endl;
+    std::cout << "[CLAPTRAP] Destructor called for " << this->name << std::endl;
     return ;
 }
 
@@ -103,34 +103,41 @@ std::ostream &operator<<(std::ostream &out, const ClapTrap &in)
     return (out);
 }
 
+//Actions
+
 void ClapTrap::attack(std::string const &target)
 {
-    if (this->energy > 0)
+    if (this->hitpoints > 0)
     {
-        this->energy--;
-        std::cout << this->name << " attacks " << target << " causing " << this->attackdmg << " damages" << std::endl;
+        if (this->energy > 0)
+        {
+            this->energy--;
+            std::cout << this->name << " attacks " << target << " causing " << this->attackdmg << " damages" << std::endl;
+        }
+        else
+            std::cout << this->name << " doesn't have enough energy to attack anyone..." << std::endl;
     }
     else
-        std::cout << this->name << " doesn't have enough energy to attack" << std::endl;
+        std::cout << this->name << " is dead and can't attack anyone..." << std::endl;
     return ;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-    if (this->hitpoints <= 0)
+    if (this->hitpoints > 0)
     {
-        std::cout << this->name << " is already dead" << std::endl;
-        return ;
-    }
-    std::cout << this->name << " received " << amount << " damages";
-    this->hitpoints -= amount;
-    if (this->hitpoints <= 0)
-    {
-        this->hitpoints = 0;
-        std::cout << std::endl << this->name << " received too much damages and died!" << std::endl;
+        std::cout << this->name << " received " << amount << " damages" << std::endl;
+        this->hitpoints -= amount;
+        if (this->hitpoints <= 0)
+        {
+            this->hitpoints = 0;
+            std::cout << this->name << " received too much damages and died!" << std::endl;
+        }
+        else
+            std::cout << this->name << " has " << this->hitpoints << " hitpoints left" << std::endl;
     }
     else
-        std::cout << std::endl << this->name << " has " << this->hitpoints << " hitpoints left" << std::endl;
+        std::cout << this->name << " is already dead and can't take more damage..." << std::endl;
     return ;
 }
 
@@ -142,8 +149,8 @@ void ClapTrap::beRepaired(unsigned int amount)
         std::cout << this->name << " was ressucitated and is now left with " << amount << " hitpoints!! MIRACLE" << std::endl;
         return ;
     }
-    std::cout << this->name << " is healed of " << amount << " hitpoint";
+    std::cout << this->name << " is healed of " << amount << " hitpoint" << std::endl;
     this->hitpoints += amount;
-    std::cout << std::endl << this->name << " now has " << this->hitpoints << " left" << std::endl;
+    std::cout << this->name << " now has " << this->hitpoints << " left" << std::endl;
     return ;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
+/*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 14:26:51 by jandre            #+#    #+#             */
-/*   Updated: 2021/11/19 16:22:55 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/27 15:10:57 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,11 @@ int main()
     guy5.attack(guy6.get_name());
     guy6.takeDamage(guy5.get_attackdmg());
     std::cout << std::endl << "Testing gatekeeper mode" << std::endl;
+    guy5.guardGate();
+    guy6.guardGate();
+    guy7.guardGate();
+    guy8.guardGate();
+    std::cout << std::endl << "Exiting gatekeeper mode" << std::endl;
     guy5.guardGate();
     guy6.guardGate();
     guy7.guardGate();
