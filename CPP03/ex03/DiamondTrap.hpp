@@ -6,7 +6,7 @@
 /*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 16:39:01 by jandre            #+#    #+#             */
-/*   Updated: 2022/01/27 16:18:17 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/27 16:33:47 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class DiamondTrap : public ScavTrap, public FragTrap {
         std::string get_name(void) const;
 
         //actions
-        void    attack(std::string const & target);
+        void    attack(std::string const &target);
         void    whoAmI(void);
 };
 

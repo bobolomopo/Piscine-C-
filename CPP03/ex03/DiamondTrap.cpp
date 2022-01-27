@@ -6,7 +6,7 @@
 /*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 16:39:09 by jandre            #+#    #+#             */
-/*   Updated: 2022/01/27 16:22:43 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/27 16:33:54 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ std::string DiamondTrap::get_name(void) const
 
 //actions
 
-void    DiamondTrap::attack(std::string const & target)
+void    DiamondTrap::attack(std::string const &target)
 {
     ScavTrap::attack(target);
     return ;
