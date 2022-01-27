@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
+/*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 15:29:38 by jandre            #+#    #+#             */
-/*   Updated: 2021/11/23 10:51:56 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/27 15:20:28 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ ScavTrap::ScavTrap(void)
     this->energy = 50;
     this->attackdmg = 20;
     this->guardkeeper_mode = 0;
-    std::cout << "[SCAVTRAP]Mister " << name << " created" << std::endl;
+    std::cout << "[SCAVTRAP] Mister " << name << " created" << std::endl;
     return ;
 }
 
@@ -30,20 +30,20 @@ ScavTrap::ScavTrap(std::string name)
     this->hitpoints = 100;
     this->energy = 50;
     this->attackdmg = 20;
-    std::cout << "[SCAVTRAP]Mister " << name << " created" << std::endl;
+    std::cout << "[SCAVTRAP] Mister " << name << " created" << std::endl;
     return ;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &src)
 {
     *this = src;
-    std::cout << "[SCAVTRAP]Mister " << name << " created" << std::endl;
+    std::cout << "[SCAVTRAP] Mister " << name << " created" << std::endl;
     return ;
 }
 
 ScavTrap::~ScavTrap(void)
 {
-    std::cout << "[SCAVTRAP]Destructor called for " << this->name << std::endl;
+    std::cout << "[SCAVTRAP] Destructor called for " << this->name << std::endl;
     return ;
 }
 //accessors

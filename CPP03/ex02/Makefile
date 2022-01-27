@@ -3,18 +3,18 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+         #
+#    By: jandre <jandre@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/19 12:58:50 by jandre            #+#    #+#              #
-#    Updated: 2021/11/19 16:41:46 by jandre           ###   ########.fr        #
+#    Updated: 2022/01/27 15:21:38 by jandre           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ClapTrap
 
-CC = clang++
+CC = c++
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 

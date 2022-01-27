@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
+/*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 16:20:57 by jandre            #+#    #+#             */
-/*   Updated: 2021/11/19 16:42:20 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/27 15:32:57 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ FragTrap::FragTrap(void)
     this->hitpoints = 100;
     this->energy = 100;
     this->attackdmg = 30;
-    std::cout << "[FRAGTRAP]Mister " << name << " created" << std::endl;
+    std::cout << "[FRAGTRAP] Mister " << name << " created" << std::endl;
     return ;
 }
 
@@ -29,20 +29,20 @@ FragTrap::FragTrap(std::string name)
     this->hitpoints = 100;
     this->energy = 100;
     this->attackdmg = 30;
-    std::cout << "[FRAGTRAP]Mister " << name << " created" << std::endl;
+    std::cout << "[FRAGTRAP] Mister " << name << " created" << std::endl;
     return ;
 }
 
 FragTrap::FragTrap(const FragTrap &src)
 {
     *this = src;
-    std::cout << "[FRAGTRAP]Mister " << name << " created" << std::endl;
+    std::cout << "[FRAGTRAP] Mister " << name << " created" << std::endl;
     return ;
 }
 
 FragTrap::~FragTrap(void)
 {
-    std::cout << "[FRAGTRAP]Destructor called for " << this->name << std::endl;
+    std::cout << "[FRAGTRAP] Destructor called for " << this->name << std::endl;
     return ;
 }
 
@@ -70,6 +70,20 @@ std::ostream &operator<<(std::ostream &out, const FragTrap &in)
 
 void FragTrap::highFivesGuys(void)
 {
-    std::cout << this->name << " : Yes Lets do a HIGH FIVE mate!!" << std::endl;
+    std::string ans;
+
+    ans = "nothing yet";
+    std::cout << this->name << " wants to do a HIGHFIVE with you, do you want to? [YES/NO]" << std::endl;
+    
+    while (ans != "YES" && ans != "NO")
+    {
+        std::cin >> ans;
+        if (ans == "YES")
+            std::cout << "Yay lets go for a HIGHFIVE! **CLAP**" << std::endl;
+        else if (ans == "NO")
+            std::cout << "Pfff no fun at all...." << std::endl;
+        else
+            std::cout << "Man i am really dumb please answer me something that i understand... [YES/NO]" << std::endl;
+    }
     return ;
 }
