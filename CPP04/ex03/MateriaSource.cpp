@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
+/*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 16:26:29 by jandre            #+#    #+#             */
-/*   Updated: 2021/12/16 17:30:32 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/27 17:12:29 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,11 @@ MateriaSource::~MateriaSource()
     for (int i = 0; i < 3; i++)
     {
         if (this->materia[i] != NULL)
-            std::cout << "Template learned at index : " << i << " was type : " << this->materia[i]->getType() << std::endl;
+        {
+            std::cout << "Template learned at index : " << i << " was type : " << \
+                this->materia[i]->getType() << std::endl;
+            delete (this->materia[i]);
+        }
     }
     return ;
 }

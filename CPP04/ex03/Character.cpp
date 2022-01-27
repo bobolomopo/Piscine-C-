@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
+/*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 17:07:12 by jandre            #+#    #+#             */
-/*   Updated: 2021/12/16 17:30:21 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/27 17:10:20 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,11 @@ Character::~Character()
     for (int i = 0; i < 3; i++)
     {
         if (this->materia[i] != NULL)
-            std::cout << "Materia equiped at index : " << i << " was type : " << this->materia[i]->getType() << std::endl;
+        {
+            std::cout << "Materia equiped at index : " << i << " was type : " << \
+                this->materia[i]->getType() << std::endl;
+            delete this->materia[i];
+        }
     }
     return ;
 }
