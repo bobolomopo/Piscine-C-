@@ -6,7 +6,7 @@
 /*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 15:29:38 by jandre            #+#    #+#             */
-/*   Updated: 2022/01/27 15:10:06 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/27 16:29:16 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 //Constructors & Destructors
 ScavTrap::ScavTrap(void)
 {
-    this->name = "G PAS DNOM";
     this->hitpoints = 100;
     this->energy = 50;
     this->attackdmg = 20;
