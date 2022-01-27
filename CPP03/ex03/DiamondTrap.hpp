@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
+/*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 16:39:01 by jandre            #+#    #+#             */
-/*   Updated: 2021/11/23 12:43:08 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/27 16:18:17 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include "FragTrap.hpp"
 # include "ScavTrap.hpp"
 
-class DiamondTrap : public virtual ScavTrap, public virtual FragTrap {
+class DiamondTrap : public ScavTrap, public FragTrap {
     private:
         std::string name;
     
@@ -34,7 +34,7 @@ class DiamondTrap : public virtual ScavTrap, public virtual FragTrap {
         std::string get_name(void) const;
 
         //actions
-        using	ScavTrap::attack;
+        void    attack(std::string const & target);
         void    whoAmI(void);
 };
 

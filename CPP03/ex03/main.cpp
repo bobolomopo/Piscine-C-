@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
+/*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 14:26:51 by jandre            #+#    #+#             */
-/*   Updated: 2021/11/23 12:46:03 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/27 16:20:15 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,14 +106,14 @@ int main()
     guy6.guardGate();
     guy7.guardGate();
     guy8.guardGate();
-    std::cout << std::endl << "Testing highfives" << std::endl;
+    /*std::cout << std::endl << "Testing highfives" << std::endl;
     guy9.highFivesGuys();
     guy10.highFivesGuys();
     guy11.highFivesGuys();
-    guy12.highFivesGuys();
+    guy12.highFivesGuys();*/
     std::cout << std::endl << "Testing gatekeeper mode, highfives and who am i for DIAMONDTRAP" << std::endl;
     guy13.guardGate();
-    guy13.highFivesGuys();
+    //guy13.highFivesGuys();
     guy13.whoAmI();
     std::cout << std::endl;
     return (0);

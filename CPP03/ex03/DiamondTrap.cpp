@@ -3,46 +3,49 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
+/*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 16:39:09 by jandre            #+#    #+#             */
-/*   Updated: 2021/11/23 13:05:41 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/27 16:22:43 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
 //Constructors & Destructors
-DiamondTrap::DiamondTrap(void) : ClapTrap("G PAS DNOM_clap_name"), name("G PAS DNOM")
+DiamondTrap::DiamondTrap(void) : ClapTrap(), ScavTrap(), FragTrap()
 {
-    ClapTrap::name = "G PAS DNOM_clap_name";
+    this->name = ClapTrap::name;
+    ClapTrap::set_name(name + "_clap_name");
     this->hitpoints = FragTrap::hitpoints;
     this->energy = ScavTrap::energy;
     this->attackdmg = FragTrap::attackdmg;
-    std::cout << "[DIAMONDTRAP]Mister " << name << " created" << std::endl;
+    std::cout << "[DIAMONDTRAP] Mister " << this->name << " created" << std::endl;
     return ;
 }
 
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name")
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name), ScavTrap(name), FragTrap(name)
 {
-    ClapTrap::name = name + "_clap_name";
+    this->name = ClapTrap::name;
+    ClapTrap::set_name(name + "_clap_name");
     this->hitpoints = FragTrap::hitpoints;
     this->energy = ScavTrap::energy;
     this->attackdmg = FragTrap::attackdmg;
-    std::cout << "[DIAMONDTRAP]Mister " << name << " created" << std::endl;
+    std::cout << "[DIAMONDTRAP] Mister " << this->name << " created" << std::endl;
     return ;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap &src)
 {
     *this = src;
-    std::cout << "[DIAMONDTRAP]Mister " << name << " created" << std::endl;
+    ClapTrap::set_name(name + "_clap_name");
+    std::cout << "[DIAMONDTRAP] Mister " << name << " created" << std::endl;
     return ;
 }
 
 DiamondTrap::~DiamondTrap(void)
 {
-    std::cout << "[DIAMONDTRAP]Destructor called for " << this->name << std::endl;
+    std::cout << "[DIAMONDTRAP] Destructor called for " << this->name << std::endl;
     return ;
 }
 
@@ -61,6 +64,12 @@ std::string DiamondTrap::get_name(void) const
 
 //actions
 
+void    DiamondTrap::attack(std::string const & target)
+{
+    ScavTrap::attack(target);
+    return ;
+}
+
 void    DiamondTrap::whoAmI(void)
 {
     std::cout << "DIAMONDTRAP name : " << this->name << std::endl;
@@ -77,7 +86,7 @@ DiamondTrap &DiamondTrap::operator=(const DiamondTrap &rhs)
         this->FragTrap::set_attackdmg(rhs.FragTrap::get_attackdmg());
         this->ScavTrap::set_energy(rhs.ScavTrap::get_energy());
         this->FragTrap::set_hitpoints(rhs.FragTrap::get_hitpoints());
-        this->set_guardGate(rhs.get_guardGate());
+        this->guardkeeper_mode = rhs.get_guardGate();
     }
     return (*this);
 }
