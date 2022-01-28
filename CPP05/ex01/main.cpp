@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
+/*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 09:53:24 by jandre            #+#    #+#             */
-/*   Updated: 2021/12/20 16:03:09 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/28 18:55:50 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int main()
     sendText("\n");
 
     //test exeptions
-    sendText("Testing increase and decrease and seeing if exeptions works");
+    sendText("Testing increase and decrease and seeing if exceptions works");
     joel.decGrade();
     std::cout << joel << std::endl;
     joel.incGrade();

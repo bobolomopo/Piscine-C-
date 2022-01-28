@@ -3,18 +3,18 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+         #
+#    By: jandre <jandre@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/23 13:43:46 by jandre            #+#    #+#              #
-#    Updated: 2021/12/20 15:42:10 by jandre           ###   ########.fr        #
+#    Updated: 2022/01/28 18:56:10 by jandre           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Bureaucrat
 
-CC = clang++
+CC = c++
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = main.cpp Bureaucrat.cpp Form.cpp
 
