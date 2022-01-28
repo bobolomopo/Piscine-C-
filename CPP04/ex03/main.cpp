@@ -6,7 +6,7 @@
 /*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 16:09:45 by jandre            #+#    #+#             */
-/*   Updated: 2022/01/28 17:23:38 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/28 17:52:58 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int main()
     std::cout << std::endl;
 
     //Test creation Materia
-   /* AMateria *tmp; 
+    AMateria *tmp; 
     tmp = src->createMateria("ice");
     AMateria *tmp2; 
     tmp2 = src->createMateria("cure");
@@ -72,20 +72,28 @@ int main()
     bob->equip(tmp2);
     std::cout << me->getMateria(0)->getType() << std::endl;
     std::cout << bob->getMateria(0)->getType() << std::endl;
-    bob = me;
-   // std::cout << me->getMateria(0)->getType() << std::endl;
-   // std::cout << bob->getMateria(0)->getType() << std::endl;*/
-
-
+    *bob = *me;
+    me->unequip(0);
+    me->equip(tmp2);
+    std::cout << me->getMateria(0)->getType() << std::endl;
+    std::cout << bob->getMateria(0)->getType() << std::endl;
+    bob->unequip(0);
+    bob->equip(tmp);
+    std::cout << me->getMateria(0)->getType() << std::endl;
+    std::cout << bob->getMateria(0)->getType() << std::endl;
+    std::cout << std::endl;
+    
     //Test operator overload && constructor copy
     *src2 = *src;
     
-    delete src;
-    delete src2;
+    delete tmp;
+    delete tmp2;
     delete me;
     delete bob;
     delete bob_cpy;
     delete test;
     delete test_cpy;
+    delete src;
+    delete src2;
     return 0;
 }
