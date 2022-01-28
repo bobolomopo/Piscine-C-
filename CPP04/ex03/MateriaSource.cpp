@@ -6,7 +6,7 @@
 /*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 16:26:29 by jandre            #+#    #+#             */
-/*   Updated: 2022/01/27 17:12:29 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/28 17:04:24 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 MateriaSource::MateriaSource(void)
 {
     for (int i(0); i < 4; i++)
-		this->materia[i] = 0;
+		this->materia[i] = NULL;
     std::cout << "MateriaSource created" << std::endl;
     return ;
 }
@@ -34,8 +34,7 @@ MateriaSource::~MateriaSource()
     {
         if (this->materia[i] != NULL)
         {
-            std::cout << "Template learned at index : " << i << " was type : " << \
-                this->materia[i]->getType() << std::endl;
+            std::cout << "Template learned at index : " << i << " was type : " << this->materia[i]->getType() << std::endl;
             delete (this->materia[i]);
         }
     }
@@ -53,12 +52,19 @@ AMateria		*MateriaSource::getMateria(int idx) const
 
 
 //operator
-MateriaSource& MateriaSource::operator=(MateriaSource const &rhs)
+MateriaSource& MateriaSource::operator=(const MateriaSource &rhs)
 {
     if (this != &rhs)
     {
-        for (int i(0); i < 4; i++)
-		    this->materia[i] = rhs.getMateria(i);
+        for (int i = 0; i < 4; i++)
+        {
+            if (this->materia[i] != NULL)
+                delete (this->materia[i]);
+            if (rhs.materia[i] != NULL)
+		        this->materia[i] = rhs.materia[i]->clone();
+            else
+                this->materia[i] = NULL;
+        }
     }
     return (*this);
 }
@@ -66,7 +72,7 @@ MateriaSource& MateriaSource::operator=(MateriaSource const &rhs)
 //Actions
 void MateriaSource::learnMateria(AMateria *m)
 {
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < 4; i++)
     {
         if (this->materia[i] == NULL)
         {

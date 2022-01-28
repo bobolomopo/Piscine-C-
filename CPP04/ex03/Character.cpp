@@ -6,7 +6,7 @@
 /*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 17:07:12 by jandre            #+#    #+#             */
-/*   Updated: 2022/01/27 17:10:20 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/28 17:22:49 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Character::Character(void)
 {
 	this->name = "NONAME";
     for (int i(0); i < 4; i++)
-		this->materia[i] = 0;
+		this->materia[i] = NULL;
     std::cout << "Character created, name : " << this->name << std::endl;
     return ;
 }
@@ -26,7 +26,7 @@ Character::Character(std::string name)
 {
     this->name = name;
     for (int i(0); i < 4; i++)
-		this->materia[i] = 0;
+		this->materia[i] = NULL;
     std::cout << "Character created, name : " << this->name << std::endl;
     return ;
 }
@@ -37,16 +37,17 @@ Character::Character(Character const &copy)
     return ;
 }
 
+
 Character::~Character()
 {
     std::cout << "Character destructed, name : " << this->name << std::endl;
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < 4; i++)
     {
         if (this->materia[i] != NULL)
         {
             std::cout << "Materia equiped at index : " << i << " was type : " << \
                 this->materia[i]->getType() << std::endl;
-            delete this->materia[i];
+            delete (this->materia[i]);
         }
     }
     return ;
@@ -55,7 +56,7 @@ Character::~Character()
 //accessor
 std::string const	&Character::getName() const
 {
-	return this->name;
+	return (this->name);
 }
 
 AMateria		*Character::getMateria(int idx) const
@@ -65,15 +66,21 @@ AMateria		*Character::getMateria(int idx) const
 	return (this->materia[idx]);
 }
 
-
 //operator
 Character& Character::operator=(Character const &rhs)
 {
     if (this != &rhs)
     {
-        this->name = rhs.getName();
-        for (int i(0); i < 4; i++)
-		    this->materia[i] = rhs.getMateria(i);
+        this->name = rhs.name;
+        for (int i = 0; i < 4; i++)
+        {
+            if (this->materia[i] != NULL)
+                delete (this->materia[i]);
+            if (rhs.getMateria(i) != NULL)
+		        this->materia[i] = rhs.getMateria(i)->clone();
+            else
+                this->materia[i] = NULL;
+        }
     }
     return (*this);
 }

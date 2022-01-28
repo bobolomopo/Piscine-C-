@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AbstractClasses.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
+/*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 18:21:37 by jandre            #+#    #+#             */
-/*   Updated: 2021/12/16 17:17:06 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/28 16:22:46 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ class IMateriaSource
 	public:
 	//Destructor
 	virtual ~IMateriaSource() {}
-	
+
     //Actions
     virtual void learnMateria(AMateria*) = 0;
 	virtual AMateria* createMateria(std::string const &type) = 0;
