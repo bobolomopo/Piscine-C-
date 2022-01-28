@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
+/*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 16:06:49 by jandre            #+#    #+#             */
-/*   Updated: 2021/12/06 15:16:32 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/28 14:34:07 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN
-# define BRAIN
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 # include <iostream>
 # include <cstdlib>
 

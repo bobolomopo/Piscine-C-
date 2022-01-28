@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
+/*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 13:44:17 by jandre            #+#    #+#             */
-/*   Updated: 2021/12/06 17:00:21 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/28 14:36:35 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,22 +57,37 @@ int main()
     std::cout << std::endl << "-----------TEST DEEP COPY-----------" << std::endl << std::endl;
     Dog *toutou1 = new Dog();
     Dog *toutou2 = new Dog();
+    Dog *toutou3 = new Dog();
+    Dog *toutou4 = new Dog(*toutou2);
     Cat *matou1 = new Cat();
     Cat *matou2 = new Cat();
-    
+    Cat *matou3 = new Cat();
+    Cat *matou4 = new Cat(*matou2);
+
+
+    *toutou3 = *toutou2;
+    *matou3 = *matou2;
     std::cout << "IDEA 1 TOUTOU1 : " << toutou1->get_idea(0) << std::endl;
     std::cout << "IDEA 1 TOUTOU2 : " << toutou2->get_idea(0) << std::endl;    
+    std::cout << "IDEA 1 TOUTOU3 : " << toutou3->get_idea(0) << std::endl;    
+    std::cout << "IDEA 1 TOUTOU4 : " << toutou4->get_idea(0) << std::endl;    
     *toutou2 = *toutou1;
     std::cout << "IDEA 1 AFTER COPY TOUTOU1 : " << toutou1->get_idea(0) << std::endl;
     std::cout << "IDEA 1 AFTER COPY TOUTOU2 : " << toutou2->get_idea(0) << std::endl;
     std::cout << "IDEA 1 MATOU1 : " << matou1->get_idea(0) << std::endl;
     std::cout << "IDEA 1 MATOU2 : " << matou2->get_idea(0) << std::endl;    
+    std::cout << "IDEA 1 MATOU3 : " << matou3->get_idea(0) << std::endl;    
+    std::cout << "IDEA 1 MATOU4 : " << matou4->get_idea(0) << std::endl;    
     *matou2 = *matou1;
     std::cout << "IDEA 1 AFTER COPY MATOU1 : " << matou1->get_idea(0) << std::endl;
     std::cout << "IDEA 1 AFTER COPY MATOU2 : " << matou2->get_idea(0) << std::endl;
-    delete(toutou2);    
     delete(toutou1);
+    delete(toutou2);    
+    delete(toutou3);
+    delete(toutou4);
     delete(matou1);    
     delete(matou2);
+    delete(matou3);
+    delete(matou4);
     return (0);
 }

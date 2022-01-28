@@ -3,18 +3,18 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+         #
+#    By: jandre <jandre@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/23 13:43:46 by jandre            #+#    #+#              #
-#    Updated: 2021/12/06 15:22:45 by jandre           ###   ########.fr        #
+#    Updated: 2022/01/28 14:05:46 by jandre           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Animals
 
-CC = clang++
+CC = c++
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = Animal.cpp Dog.cpp WrongAnimal.cpp Cat.cpp WrongCat.cpp main.cpp Brain.cpp
 

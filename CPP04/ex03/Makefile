@@ -3,18 +3,18 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+         #
+#    By: jandre <jandre@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/23 13:43:46 by jandre            #+#    #+#              #
-#    Updated: 2021/12/16 17:19:37 by jandre           ###   ########.fr        #
+#    Updated: 2022/01/28 14:05:59 by jandre           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Materia
 
-CC = clang++
+CC = c++
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = AbstractClasses.cpp Character.cpp Cure.cpp Ice.cpp main.cpp MateriaSource.cpp 
 

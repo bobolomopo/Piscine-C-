@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
+/*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 13:49:04 by jandre            #+#    #+#             */
-/*   Updated: 2021/12/06 16:34:11 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/28 14:43:21 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ Dog::Dog(void)
 
 Dog::Dog(const Dog &src)
 {
+    this->brain = new Brain;
     *this = src;
     std::cout << "Dog copied" << std::endl;
     return ;
@@ -40,7 +41,9 @@ Dog &Dog::operator=(const Dog &rhs)
 {
     if (this != &rhs)
     {
-        *(this->brain) = *(rhs.brain);
+        if (this->brain)
+            delete (this->brain);
+        this->brain = new Brain(*(rhs.brain));
         this->set_type(rhs.get_type());
     }
     return (*this);

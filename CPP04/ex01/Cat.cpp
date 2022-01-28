@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
+/*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 13:49:28 by jandre            #+#    #+#             */
-/*   Updated: 2021/12/06 16:36:38 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/28 14:42:33 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ Cat::Cat(void)
 
 Cat::Cat(const Cat &src)
 {
+    this->brain = new Brain;
     *this = src;
     std::cout << "Cat copied" << std::endl;
     return ;
@@ -42,7 +43,9 @@ Cat &Cat::operator=(const Cat &rhs)
 {
     if (this != &rhs)
     {
-        *(this->brain) = *(rhs.brain);
+        if (this->brain)
+            delete (this->brain);
+        this->brain = new Brain(*(rhs.brain));
         this->set_type(rhs.get_type());
     }
     return (*this);

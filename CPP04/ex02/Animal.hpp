@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
+/*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 13:44:29 by jandre            #+#    #+#             */
-/*   Updated: 2021/12/06 16:59:45 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/28 14:34:13 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL
-# define ANIMAL
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 # include <iostream>
 
 class Animal {

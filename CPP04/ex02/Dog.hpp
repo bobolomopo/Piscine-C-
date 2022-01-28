@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
+/*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 13:48:52 by jandre            #+#    #+#             */
-/*   Updated: 2021/12/06 15:41:42 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/28 14:33:55 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG
-# define DOG
+#ifndef DOG_HPP
+# define DOG_HPP
 # include "Animal.hpp"
 # include "Brain.hpp"
 
