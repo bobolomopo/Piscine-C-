@@ -6,7 +6,7 @@
 /*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 17:07:12 by jandre            #+#    #+#             */
-/*   Updated: 2022/01/28 17:52:16 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/28 18:32:00 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ Character::~Character()
         {
             std::cout << "Materia equiped at index : " << i << " was type : " << \
                 this->materia[i]->getType() << std::endl;
-            delete (this->materia[i]);
         }
     }
     return ;
@@ -74,10 +73,8 @@ Character& Character::operator=(Character const &rhs)
         this->name = rhs.name;
         for (int i = 0; i < 4; i++)
         {
-            if (this->materia[i] != NULL)
-                delete (this->materia[i]);
             if (rhs.materia[i] != NULL)
-		        this->materia[i] = rhs.materia[i]->clone();
+		        this->materia[i] = rhs.materia[i];
             else
                 this->materia[i] = NULL;
         }
@@ -91,7 +88,6 @@ void Character::unequip(int idx)
 {
     if (this->materia[idx] != NULL)
     {
-        delete (this->materia[idx]);
         this->materia[idx] = NULL;
         std::cout << "Materia successfuly unequiped" << std::endl;
     }
@@ -106,11 +102,12 @@ void Character::equip(AMateria *m)
     {
         if (this->materia[i] == NULL)
         {
-            this->materia[i] = m->clone();
+            this->materia[i] = m;
             std::cout << "Materia " << this->materia[i]->getType() << " equiped" << std::endl;
             return ;
         }
     }
+    std::cout << "All slot already equied, unequip a Materia first" << std::endl;
     return ;
 }
 

@@ -6,7 +6,7 @@
 /*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 16:26:29 by jandre            #+#    #+#             */
-/*   Updated: 2022/01/28 17:04:24 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/28 18:28:29 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ MateriaSource::MateriaSource(MateriaSource const &copy)
 MateriaSource::~MateriaSource()
 {
     std::cout << "MateriaSource destructed" << std::endl;
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < 4; i++)
     {
         if (this->materia[i] != NULL)
         {
@@ -86,7 +86,7 @@ void MateriaSource::learnMateria(AMateria *m)
 
 AMateria *MateriaSource::createMateria(std::string const &type)
 {
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < 4; i++)
     {
         if (this->materia[i]->getType() == type)
         {
@@ -94,5 +94,6 @@ AMateria *MateriaSource::createMateria(std::string const &type)
             return (this->materia[i]->clone());
         }
     }
-    return (0);
+    std::cout << "Materia is not learned..." << std::endl;
+    return (NULL);
 }

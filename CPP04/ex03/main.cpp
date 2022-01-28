@@ -6,7 +6,7 @@
 /*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 16:09:45 by jandre            #+#    #+#             */
-/*   Updated: 2022/01/28 17:52:58 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/28 18:37:20 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,29 +17,6 @@
 
 int main()
 {
-    /*IMateriaSource* src = new MateriaSource();
-    IMateriaSource* src2 = new MateriaSource();
-    src->learnMateria(new Ice());
-    src2->learnMateria(new Cure());
-    src->learnMateria(new Cure());
-    src2->learnMateria(new Ice());
-    src2 = src;
-    ICharacter* me = new Character("me");
-    AMateria* tmp = NULL;
-    tmp = src->createMateria("ice");
-    me->equip(tmp);
-    tmp = src->createMateria("cure");
-    me->equip(tmp);
-    ICharacter* bob = new Character("bob");
-    me->use(0, *bob);
-    me->use(1, *bob);
-    bob = me;
-    delete bob;
-    delete me;
-    delete src;
-    delete src2;*/
-
-
     //Class Character test
     Character *me = new Character("me");
     Character *bob = new Character("bob");
@@ -64,13 +41,25 @@ int main()
     std::cout << std::endl;
 
     //Test creation Materia
-    AMateria *tmp; 
-    tmp = src->createMateria("ice");
-    AMateria *tmp2; 
-    tmp2 = src->createMateria("cure");
+    AMateria *tmp = src->createMateria("ice");
+    AMateria *tmp2 = src->createMateria("cure");
+    AMateria *tmp3 = src->createMateria("cure");
+    AMateria *tmp4 = src->createMateria("ice");
     me->equip(tmp);
-    bob->equip(tmp2);
+    me->equip(tmp2);
+    me->equip(tmp3);
+    me->equip(tmp4);
+    me->equip(tmp);
     std::cout << me->getMateria(0)->getType() << std::endl;
+    std::cout << me->getMateria(1)->getType() << std::endl;
+    std::cout << me->getMateria(2)->getType() << std::endl;
+    std::cout << me->getMateria(3)->getType() << std::endl << std::endl;
+    //Using Materia equiped
+    me->use(0, *bob);
+    me->use(1, *bob);
+    bob->use(3, *me);
+    std::cout << std::endl;
+    bob->equip(tmp2);
     std::cout << bob->getMateria(0)->getType() << std::endl;
     *bob = *me;
     me->unequip(0);
@@ -88,6 +77,8 @@ int main()
     
     delete tmp;
     delete tmp2;
+    delete tmp3;
+    delete tmp4;
     delete me;
     delete bob;
     delete bob_cpy;
