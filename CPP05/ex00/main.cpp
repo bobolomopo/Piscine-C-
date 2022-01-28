@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
+/*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 09:53:24 by jandre            #+#    #+#             */
-/*   Updated: 2021/12/20 10:16:59 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/28 18:55:13 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int main()
     sendText("\n");
 
     //test all overloads
-    sendText("Testing all the overloads on all the bureacrat created");
+    sendText("Testing all the overloads on all the bureaucrat created");
     std::cout << joel << std::endl;
     std::cout << marcel << std::endl;
     std::cout << basic << std::endl;
