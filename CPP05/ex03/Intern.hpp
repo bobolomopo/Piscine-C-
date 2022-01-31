@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
+/*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 15:50:58 by jandre            #+#    #+#             */
-/*   Updated: 2021/12/23 16:03:13 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/31 15:54:28 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ class Intern {
 
         //Actions
         AForm *makeForm(std::string type, std::string target);
+        AForm* createPresidential(std::string formTarget);
+        AForm* createRobotomy(std::string formTarget);
+        AForm* createShrubbery(std::string formTarget);
+        
 };
 
 #endif

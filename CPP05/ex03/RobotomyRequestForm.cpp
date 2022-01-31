@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
+/*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 16:06:54 by jandre            #+#    #+#             */
-/*   Updated: 2021/12/21 19:41:31 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/31 15:48:22 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ void RobotomyForm::execute(Bureaucrat const &executor) const
 		std::cout << this->getName() << e.what() << std::endl;
         return ;
 	}
+    srand (time(NULL));
     std::cout << "BRRRrrRRRrRRr ** Bruit de Perceuse ** BRErrrrrrrbBBRrr" << std::endl;
     if (rand()% 2 == 1)
         std::cout << this->getTarget() << " has successfully been Robotomized" << std::endl;

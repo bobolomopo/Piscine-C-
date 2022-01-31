@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jandre <ajuln@hotmail.fr>                  +#+  +:+       +#+        */
+/*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 15:57:03 by jandre            #+#    #+#             */
-/*   Updated: 2021/12/23 16:22:01 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/31 16:01:19 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,22 +39,28 @@ Intern &Intern::operator=(Intern const & src)
 //Action
 AForm *Intern::makeForm(std::string type, std::string target)
 {
-    if (type == "robotomy")
-    {
-        std::cout << "Intern creates a new robotomy request with the target : " << target << std::endl;
-        return (new RobotomyForm(target));
-    }
-    else if (type == "presidential")
-    {
-        std::cout << "Intern creates a new presidential request with the target : " << target << std::endl;
-        return (new PresidentialForm(target));
-    }
-    else if (type == "shrubbery")
-    {
-        std::cout << "Intern creates a new shrubbery request with the target : " << target << std::endl;
-        return (new ShrubberyForm(target));
-    }
-    else
-        std::cout << "Intern doesn't know any form like that." << std::endl;
+    std::string array[3] = {"presidential", "robotomy", "shrubbery"};
+	AForm *(fct[3]) = {&Intern::createPresidential, &Intern::createRobotomy, &Intern::createShrubbery};
+
+	for (int i = 0; i < 3; i++)
+	{
+		if (type == array[i])
+		{
+			std::cout << "Intern creates <" << type << ">." << std::endl;
+			return this->*(fct[i](target));
+		}
+	}
     return (NULL);
+}
+
+AForm *Intern::createPresidential(std::string target) {
+	return new PresidentialForm(target);
+}
+
+AForm *Intern::createRobotomy(std::string target) {
+	return new RobotomyForm(target);
+}
+
+AForm *Intern::createShrubbery(std::string target) {
+	return new ShrubberyForm(target);
 }
