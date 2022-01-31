@@ -6,7 +6,7 @@
 /*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 15:57:03 by jandre            #+#    #+#             */
-/*   Updated: 2022/01/31 16:01:19 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/31 16:56:21 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,14 @@ Intern &Intern::operator=(Intern const & src)
 AForm *Intern::makeForm(std::string type, std::string target)
 {
     std::string array[3] = {"presidential", "robotomy", "shrubbery"};
-	AForm *(fct[3]) = {&Intern::createPresidential, &Intern::createRobotomy, &Intern::createShrubbery};
+	AForm *(Intern::*(fct[3]))(std::string) = {&Intern::createPresidential, &Intern::createRobotomy, &Intern::createShrubbery};
 
 	for (int i = 0; i < 3; i++)
 	{
 		if (type == array[i])
 		{
 			std::cout << "Intern creates <" << type << ">." << std::endl;
-			return this->*(fct[i](target));
+			return (((this)->*(fct[i]))(target));
 		}
 	}
     return (NULL);
