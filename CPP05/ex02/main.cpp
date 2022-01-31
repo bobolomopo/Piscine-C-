@@ -6,7 +6,7 @@
 /*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 09:53:24 by jandre            #+#    #+#             */
-/*   Updated: 2022/01/28 18:58:17 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/31 15:25:02 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,15 +64,19 @@ int main()
     sendText("\n");
 
     //test exeptions
-    sendText("Testing execute");
+    sendText("Testing execute without the form being signed");
     marcel.executeForm(schru);
     marcel.executeForm(pres);
     marcel.executeForm(rob);
+    sendText("\n");
+    sendText("Testing the signature of the form with good and wrong grade");
     joel.signForm(schru);
     marcel.signForm(schru);
     marcel.signForm(pres);
     marcel.signForm(schru);
     marcel.signForm(rob);
+    sendText("\n");
+    sendText("Testing to execute with wrong and good grade");
     joel.executeForm(schru);
     marcel.executeForm(schru);
     marcel.executeForm(rob);
