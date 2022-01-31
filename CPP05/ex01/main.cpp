@@ -6,7 +6,7 @@
 /*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 09:53:24 by jandre            #+#    #+#             */
-/*   Updated: 2022/01/28 18:55:50 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/31 15:18:20 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,14 @@ int main()
     std::cout << marcel << std::endl;
     std::cout << basic << std::endl;
     std::cout << joel_copy << std::endl;
+    joel_copy = marcel;
+    std::cout << "After egaling joel to marcel : " << joel_copy << std::endl;
     std::cout << A << std::endl;
     std::cout << B << std::endl;
     std::cout << B_cpy << std::endl;
     std::cout << C << std::endl;
+    B_cpy = C;
+    std::cout << "After egaling B_cpy to C : " << B_cpy << std::endl;
     sendText("\n");
 
     //test exeptions
@@ -76,6 +80,8 @@ int main()
     C.beSigned(marcel);
     C.beSigned(Kokori);
     B.beSigned(joel);
+    B_cpy = C;
+    std::cout << "After egaling B_cpy to C : " << B_cpy << std::endl;
     Kokori.signForm(C_cpy);
     Kakari.signForm(C_cpy);
     marcel.signForm(C_cpy);

@@ -6,7 +6,7 @@
 /*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 09:53:24 by jandre            #+#    #+#             */
-/*   Updated: 2022/01/31 15:11:19 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/31 15:14:48 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int main()
     std::cout << basic << std::endl;
     std::cout << joel_copy << std::endl;
     joel_copy = marcel;
-    std::cout << joel_copy << std::endl;
+    std::cout <<  "After egaling joel to marcel : " << joel_copy << std::endl;
     sendText("\n");
 
     //test exeptions
