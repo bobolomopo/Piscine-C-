@@ -6,7 +6,7 @@
 /*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 15:33:30 by jandre            #+#    #+#             */
-/*   Updated: 2022/01/20 15:53:58 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/31 17:39:26 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Data *deserialize(uintptr_t raw)
 int main()
 {
     Data *data = new Data;
-    Data *data2;
+    Data *data2 = NULL;
     uintptr_t i;
 
     data->c = 'd';
