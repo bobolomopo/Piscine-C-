@@ -6,7 +6,7 @@
 /*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 09:53:24 by jandre            #+#    #+#             */
-/*   Updated: 2022/01/28 18:55:13 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/31 15:11:19 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int main()
     std::cout << joel << std::endl;
     std::cout << marcel << std::endl;
     std::cout << basic << std::endl;
+    std::cout << joel_copy << std::endl;
+    joel_copy = marcel;
     std::cout << joel_copy << std::endl;
     sendText("\n");
 
