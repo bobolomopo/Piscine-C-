@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   convert.cpp                                        :+:      :+:    :+:   */
+/*   Convert.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 12:49:54 by jandre            #+#    #+#             */
-/*   Updated: 2022/01/20 15:22:41 by jandre           ###   ########.fr       */
+/*   Updated: 2022/01/31 17:28:35 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,15 @@ const char *Convert::NotDisplayable::what() const throw()
 //actions
 int Convert::is_okay(void) const
 {
-    if (this->input.length() != 1 && (*this->input.begin() < '0' || *this->input.begin() > '9'))
+    if (((this->input.length() != 1) && (this->input.c_str()[0] < '0' || this->input.c_str()[0] > '9') &&
+        (this->input.c_str()[0] == '-' && (this->input.c_str()[1] < '0' || this->input.c_str()[1] > '9'))))
+    {
+        if (this->input == "inf" || this->input == "nan" || this->input == "-inf" ||
+            this->input == "inff" || this->input == "-inff" || this->input == "nanf" ||
+            this->input == "+inf" || this->input == "+inff")
+            return (0);
         return (1);
+    }
     return (0); 
 }
 
@@ -123,6 +130,8 @@ void Convert::toint(void) const
     }
     try
     {
+        if (this->input == "nan" || this->input == "nanf")
+            throw(Convert::Impossible());
         if (d > 2147483647 || d < -2147483648 || d == 0)
             throw(Convert::Impossible());
     }
@@ -143,11 +152,6 @@ void Convert::tofloat(void) const
     char **end = NULL;
 
     std::cout << "float : ";
-    if (this->input == "-inf" || this->input == "+inf" || this->input == "nan")
-    {
-		std::cout << this->input << "f" << std::endl;
-        return ;
-    }
     if (this->input == "0")
     {
         std::cout << "0.0f" << std::endl;
@@ -174,12 +178,7 @@ void Convert::todouble(void) const
     double d;
     char **end = NULL;
 
-    std::cout << "float : ";
-    if (this->input == "-inf" || this->input == "+inf" || this->input == "nan")
-    {
-		std::cout << this->input << std::endl;
-        return ;
-    }
+    std::cout << "double : ";
     if (this->input == "0")
     {
         std::cout << "0.0" << std::endl;
