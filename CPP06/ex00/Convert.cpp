@@ -6,7 +6,7 @@
 /*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 12:49:54 by jandre            #+#    #+#             */
-/*   Updated: 2022/01/31 17:28:35 by jandre           ###   ########.fr       */
+/*   Updated: 2022/02/01 11:30:37 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void Convert::tochar(void) const
         d = strtod(this->input.c_str(), end);
         if (*input.begin() < '0' || *input.begin() > '9' || d < 0 || d > 255)
             throw(Convert::Impossible());
-        if (d < 32 || d > 127)
+        if (d < 32 || d > 126)
             throw(Convert::NotDisplayable());
     }
     catch (Convert::Impossible &e)
