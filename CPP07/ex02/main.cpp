@@ -23,11 +23,18 @@ int main(int, char**)
         {
             std::cout << numbers[i] << " | ";
             std::cout << tmp[i] << " | ";
+            tmp[i] = 0;
             std::cout << a[i] << " | ";
             std::cout << test[i] << std::endl;
         }
+        std::cout << std::endl << "Testing to change the value of one array and checking if the arays its copied from didnt change : " << std::endl;
+        for (int i = 0; i < MAX_VAL - 1; i++)
+        {
+            std::cout << numbers[i] << " | ";
+            std::cout << tmp[i] << std::endl;
+        }
     }
-
+    std::cout << std::endl << "Testing if mirror and numbers are correctly equalized, dont send back anything if its the case : " << std::endl;
     for (int i = 0; i < MAX_VAL; i++)
     {
         if (mirror[i] != numbers[i])
@@ -36,6 +43,7 @@ int main(int, char**)
             return 1;
         }
     }
+    std::cout << std::endl << "Testing Exeption if value in brackets is bad : " << std::endl;
     try
     {
         numbers[-2] = 0;
@@ -52,6 +60,7 @@ int main(int, char**)
     {
         std::cout << e.what() << std::endl;
     }
+    std::cout << std::endl << "Checking if every value is correctly attributed in numbers : " << std::endl;
     for (int i = 0; i < MAX_VAL - 1; i++)
     {
         numbers[i] = rand();

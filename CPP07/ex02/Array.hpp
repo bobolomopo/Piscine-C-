@@ -6,7 +6,7 @@
 /*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 18:02:31 by jandre            #+#    #+#             */
-/*   Updated: 2022/01/27 18:37:49 by jandre           ###   ########.fr       */
+/*   Updated: 2022/02/01 11:56:02 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class Array
 {
     public:
         //Constructors & Destructors
-        Array<T>() : _n(0), _array(NULL)
+        Array<T>() : _n(0), _array()
         {
             std::cout << "Array created with size : " << this->_n << std::endl;
             return ;
