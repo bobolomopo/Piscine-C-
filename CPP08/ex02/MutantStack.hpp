@@ -6,7 +6,7 @@
 /*   By: jandre <jandre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 13:09:16 by jandre            #+#    #+#             */
-/*   Updated: 2022/01/28 13:12:20 by jandre           ###   ########.fr       */
+/*   Updated: 2022/02/01 13:44:15 by jandre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <list>
 # include <algorithm>
 # include <string>
+# include <stack>
 
 template <typename T>
 class MutantStack : public std::stack<T> {
