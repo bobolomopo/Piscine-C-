@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Array.hpp"
 
-#define MAX_VAL 10
+#define MAX_VAL 10000
 int main(int, char**)
 {
     Array<int> numbers(MAX_VAL);
@@ -67,6 +67,7 @@ int main(int, char**)
         std::cout << numbers[i] << ", ";
     }
     std::cout << numbers[MAX_VAL - 1] << std::endl;
+    std::cout << "Testing the size fonction : " << numbers.size() << std::endl;
     delete [] mirror;
     return 0;
 }
